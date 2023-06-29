@@ -1,0 +1,16 @@
+#!/bin/bash
+source autobuild.conf
+PACKAGE=$1
+
+cd $BUILD_SCRIPTS_ROOT
+REPO=spice/spice-protocol
+PROJECT_ID=$(echo $REPO | sed 's!/!%2F!')
+GITLAB_SERVER="https://gitlab.freedesktop.org/"
+LATEST_VER=$(curl \
+  -Ls "$GITLAB_SERVER/api/v4/projects/$PROJECT_ID/releases/permalink/latest" | grep tag_name | sed 's/.$//' | sed 's/\"//g' | sed 's/.*://' | sed 's/^.//' | sed 's/.*-//g' | sed 's/v//' | sed 's!.*/!!' | sed 's/.$//' )
+# Some apps have TAG_OVERRIDE because the tags are newer than the releases, in that case use those instead
+cat $(find . -name $PACKAGE) | grep TAG_OVERRIDE &> /dev/null
+if [[ $? == 0 ]]; then
+   LATEST_VER=""
+fi
+echo $LATEST_VER
