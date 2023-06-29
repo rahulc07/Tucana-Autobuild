@@ -4,10 +4,12 @@
 # Again, this is some of the worst yet most functional code I have ever written.  Please read everything twice before assuming that something doesn't work. 
 # To use this script you have to change paths in 3 files, convert_txt_to_script.sh (run the build_new_currency function to make a new currency.sh), $BUILD_SCRIPTS_ROOT/scripts/generate_pkgvers.sh and this file to make the currency checks work.
 source autobuild.conf
+rm -rf $AUTOBUILD_ROOT
+mkdir -p $AUTOBUILD_ROOT
 build_new_currency() {
  cd $CURRENCY_TXT_LOCATIONS
  find . -type f | while IFS= read -r txt; do
-  bash $BUILD_SCRIPTS_ROOT/scripts/convert_txt_to_script.sh  $txt
+  bash $AUTOMATION_SCRIPTS/convert_txt_to_script.sh  $txt
  done
 }
 email_upgrades() {
@@ -66,7 +68,7 @@ bash currency.sh
 # Get the pkgvers in the Repo at that moment
 cd $BUILD_SCRIPTS_ROOT
 echo "Getting current package versions"
-scripts/generate_pkgvers.sh # The output variable in generate_pkgvers MUST point to the same folder as $AUTOBUILD_ROOT in this script
+$AUTOMATION_SCRIPTS/generate_pkgvers.sh # The output variable in generate_pkgvers MUST point to the same folder as $AUTOBUILD_ROOT in this script
 
 
 # Sort the currency output

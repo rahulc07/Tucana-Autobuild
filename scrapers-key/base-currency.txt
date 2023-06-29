@@ -55,7 +55,6 @@ perl: 7
 perl-xml-parser: 1
 pkgconf: 3
 procps-ng: 7
-procps-ng: gnu-efi
 psmisc: gnu-efi
 python: python
 readline: 1
