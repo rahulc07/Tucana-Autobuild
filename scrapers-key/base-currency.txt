@@ -35,7 +35,7 @@ intltool: 7
 iproute2: 1
 kbd: 1
 kmod: 1
-less: 1
+less: 7
 libcap: 1
 libelf: 7
 libffi: 3

@@ -13,7 +13,7 @@ util-macros: 1
 wayland: 8
 xbitmaps: 1
 xcb-proto: 1
-xcb-util: 1
+xcb-util: 7
 xcb-util-cursor: 1
 xcb-util-image: 1
 xcb-util-keysyms: 1
