@@ -83,7 +83,7 @@ gst-plugins-ugly: 1
 gstreamer: 1
 gtk3: 7
 gtksourceview4: 7
-gvfs: 4
+gvfs: gvfs.sh
 harfbuzz: 3
 hicolor-icons: 1
 highlight: 7
@@ -184,7 +184,7 @@ mtool: 1
 nasm: 7
 net-tools: gnu-efi
 nettle: 1
-network-manager: 7
+network-manager: gvfs.sh
 newt: 1
 nghttp2: 3
 nodejs: nodejs.sh
