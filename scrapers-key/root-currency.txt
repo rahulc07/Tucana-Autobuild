@@ -184,7 +184,7 @@ mtool: 1
 nasm: 7
 net-tools: gnu-efi
 nettle: 1
-network-manager: 4
+network-manager: 7
 newt: 1
 nghttp2: 3
 nodejs: nodejs.sh
@@ -274,3 +274,4 @@ cyrus-sasl: 3
 sendmail: sendmail.sh
 mailutils: 1
 libgedit-gtksourceview: libgedit-gtksourceview
+go: 7
