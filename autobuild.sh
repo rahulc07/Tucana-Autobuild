@@ -18,7 +18,7 @@ cd $AUTOBUILD_ROOT
 
 # Make the file to email
 echo "From: Tucana Autobuild Tool
-Subject: Tucana Build Outline for $(date '+%B %d %Y')
+Subject: Tucana Build Manifest for $(date '+%B %d %Y')
 Tucana Currency Check for $(date '+%B %d %Y')
 Packages that are going to be built:
 Package name: (Version in repo)   (Version going to be built)
