@@ -97,6 +97,7 @@ cd $BUILD_SCRIPTS_ROOT
 # Both of these have highly predictable input and will NEVER contain special characters or spaces don't @ me for not using a while loop here, using a for loop makes the code for readable and faster. 
 for PACKAGE in $UPGRADE_PACKAGES; do
   echo "Changing $PACKAGE PKG_VER"
+  cd $BUILD_SCRIPTS_ROOT
   LOCATION=$(find . -type f -name $PACKAGE)
   # Quick sanity check to make sure that the currency script didn't fail
   echo "$NEW_VERSIONS" | grep $PACKAGE | grep -E ': [0-9]+' &> /dev/null
