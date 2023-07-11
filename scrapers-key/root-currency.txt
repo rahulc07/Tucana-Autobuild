@@ -3,7 +3,6 @@ URI: 1
 a52dec: a52dec.sh
 accounts-service: 1
 alsa-lib: 1
-amdgpu: 1
 apache: 1
 appstream: 1
 apr: apr.sh
