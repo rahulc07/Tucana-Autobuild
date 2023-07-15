@@ -58,6 +58,80 @@ TAS " > failed_$package.txt
 echo "Emailing Results"
 /home/rahul/lfs/email_from_tucana.sh failed_$package.txt
 }
+chroot_setup() {
+  # Subset of the installer script, check there for explanations
+  cd $AUTOBUILD_ROOT
+  git clone https://github.com/xXTeraXx/Tucana.git
+  # Change Install path and Repo
+  sed -i "s/INSTALL_PATH=.*/INSTALL_PATH=$CHROOT/g" Tucana/mercury/*
+  sed -i "s/REPO=.*/REPO=$REPO/g" Tucana/mercury/*
+  
+  # Install the base system
+  cd Tucana/mercury
+  ./mercury-sync
+  printf "y\n" | ./mercury-install base
+  
+  # Mount temp filesystems
+  mount --bind /dev $CHROOT/dev
+  mount --bind /proc $CHROOT/proc
+  mount --bind /sys $CHROOT/sys
+  mount --bind /dev/pts $CHROOT/dev/pts
+
+  # Setup Systemd services (probably not needed)
+  chroot $CHROOT /bin/bash -c "systemd-machine-id-setup && systemctl preset-all"
+  
+  # SSL and shadow first time setup
+   # DNS
+  echo "nameserver 1.1.1.1" > $BUILD_DIR/squashfs-root/etc/resolv.conf
+  chroot $CHROOT /bin/bash -c "make-ca -g --force"
+  chroot $CHROOT /bin/bash -c "pwconv"
+  
+  # Kernel & Build Essentials (steam is the easiest way to get the lib32 stuff)
+  chroot $CHROOT /bin/bash -c "printf 'y\n' | mercury-install linux-tucana mpc gcc binutils steam automake autoconf ninja meson cmake make flex bison gawk gperf pkgconf file patch gettext perl texinfo less check m4 bc glslang vulkan-headers git gobject-introspection"
+  
+  # Locale
+  echo "Building Locales"
+  chroot $CHROOT /bin/bash -c "mkdir -pv /usr/lib/locale
+   localedef -i POSIX -f UTF-8 C.UTF-8 2> /dev/null || true
+   localedef -i cs_CZ -f UTF-8 cs_CZ.UTF-8
+   localedef -i de_DE -f ISO-8859-1 de_DE
+   localedef -i de_DE@euro -f ISO-8859-15 de_DE@euro
+   localedef -i de_DE -f UTF-8 de_DE.UTF-8
+   localedef -i el_GR -f ISO-8859-7 el_GR
+   localedef -i en_GB -f ISO-8859-1 en_GB
+   localedef -i en_GB -f UTF-8 en_GB.UTF-8
+   localedef -i en_HK -f ISO-8859-1 en_HK
+   localedef -i en_PH -f ISO-8859-1 en_PH
+   localedef -i en_US -f ISO-8859-1 en_US
+   localedef -i en_US -f UTF-8 en_US.UTF-8
+   localedef -i es_ES -f ISO-8859-15 es_ES@euro
+   localedef -i es_MX -f ISO-8859-1 es_MX
+   localedef -i fa_IR -f UTF-8 fa_IR
+   localedef -i fr_FR -f ISO-8859-1 fr_FR
+   localedef -i fr_FR@euro -f ISO-8859-15 fr_FR@euro
+   localedef -i fr_FR -f UTF-8 fr_FR.UTF-8
+   localedef -i is_IS -f ISO-8859-1 is_IS
+   localedef -i is_IS -f UTF-8 is_IS.UTF-8
+   localedef -i it_IT -f ISO-8859-1 it_IT
+   localedef -i it_IT -f ISO-8859-15 it_IT@euro
+   localedef -i it_IT -f UTF-8 it_IT.UTF-8
+   localedef -i ja_JP -f EUC-JP ja_JP
+   localedef -i ja_JP -f SHIFT_JIS ja_JP.SJIS 2> /dev/null || true
+   localedef -i ja_JP -f UTF-8 ja_JP.UTF-8
+   localedef -i nl_NL@euro -f ISO-8859-15 nl_NL@euro
+   localedef -i ru_RU -f KOI8-R ru_RU.KOI8-R
+   localedef -i ru_RU -f UTF-8 ru_RU.UTF-8
+   localedef -i se_NO -f UTF-8 se_NO.UTF-8
+   localedef -i ta_IN -f UTF-8 ta_IN.UTF-8
+   localedef -i tr_TR -f UTF-8 tr_TR.UTF-8
+   localedef -i zh_CN -f GB18030 zh_CN.GB18030
+   localedef -i zh_HK -f BIG5-HKSCS zh_HK.BIG5-HKSCS
+   localedef -i zh_TW -f UTF-8 zh_TW.UTF-8"
+
+
+   
+
+}
 # Generate the currency check script
 echo "Generating Currency Check Script"
 build_new_currency
@@ -69,7 +143,6 @@ bash currency.sh
 cd $BUILD_SCRIPTS_ROOT
 echo "Getting current package versions"
 $AUTOMATION_SCRIPTS/generate_pkgvers.sh # The output variable in generate_pkgvers MUST point to the same folder as $AUTOBUILD_ROOT in this script
-
 
 # Sort the currency output
 cd $AUTOBUILD_ROOT
@@ -114,9 +187,12 @@ done
 
 
 echo "Preparing for build"
+echo "Creating Chroot"
+chroot_setup
+cp -rpv $BUILD_SCRIPTS_ROOT $CHROOT/blfs/builds
 # Prepare to do the final build (assuming host system is clean)
 cd $BUILD_SCRIPTS_ROOT
-mkdir -p /finished /pkgs /blfs/builds/
+mkdir -p $CHROOT/finished $CHROOT/pkgs $CHROOT/blfs/builds/
 rm -rf /blfs/builds/* /pkgs/*
 mkdir -p $LOG_ROOT
 
@@ -125,7 +201,7 @@ for PACKAGE in $UPGRADE_PACKAGES; do
    cd $BUILD_SCRIPTS_ROOT
    LOCATION=$(find . -type f -name $PACKAGE)
    echo "Building $PACKAGE"
-   bash -e $LOCATION &> $LOG_ROOT/$PACKAGE-$(date '+%m-%d-%Y').log
+   chroot $CHROOT /bin/bash -c "bash -e $LOCATION" &> $LOG_ROOT/$PACKAGE-$(date '+%m-%d-%Y').log
    if [[ $? -ne 0 ]]; then
      notify_failed_package "$PACKAGE" "1"
      sleep 2
