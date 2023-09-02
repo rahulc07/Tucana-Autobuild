@@ -176,7 +176,7 @@ for PACKAGE in $UPGRADE_PACKAGES; do
   echo "$NEW_VERSIONS" | grep $PACKAGE | grep -E ': [0-9]+' &> /dev/null
   if [[ $? -ne 0 ]]; then
      echo "Currency check on $PACKAGE FAILED! Removing from upgrade list"
-     NEW_VERSIONS1=$(echo "$NEW_VERSIONS" | sed "s/.*$PACKAGE.*//")
+     NEW_VERSIONS1=$(echo "$NEW_VERSIONS" | sed "s/$PACKAGE\ //g")
      NEW_VERSIONS="$NEW_VERSIONS1"
      notify_failed_package "$PACKAGE" "2"
   else

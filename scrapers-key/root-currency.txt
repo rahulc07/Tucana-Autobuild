@@ -277,3 +277,4 @@ gnupg: 1
 mpg123: 7
 iptables: 1
 go: 7
+libgedit-amtk: 3

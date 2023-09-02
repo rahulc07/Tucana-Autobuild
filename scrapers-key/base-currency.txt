@@ -70,3 +70,4 @@ vim: 3
 xz: 1
 zlib: zlib
 zstd: 3
+libxcrypt: 3
