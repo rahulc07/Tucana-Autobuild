@@ -145,6 +145,10 @@ cd $BUILD_SCRIPTS_ROOT
 echo "Getting current package versions"
 $AUTOMATION_SCRIPTS/generate_pkgvers.sh # The output variable in generate_pkgvers MUST point to the same folder as $AUTOBUILD_ROOT in this script
 
+# Remove hold packages
+$AUTOMATION_SCRIPTS/hold.sh
+
+
 # Sort the currency output
 cd $AUTOBUILD_ROOT
 cat latest-ver.txt | sort > latest-ver-sorted.txt
