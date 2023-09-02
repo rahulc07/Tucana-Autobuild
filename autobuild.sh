@@ -129,7 +129,8 @@ chroot_setup() {
    localedef -i zh_TW -f UTF-8 zh_TW.UTF-8"
 
 
-   
+   # Copy the build scripts 
+   cp  -r $BUILD_SCRIPTS_ROOT $CHROOT/Tucana-Build-Scripts
 
 }
 # Generate the currency check script
@@ -199,9 +200,9 @@ mkdir -p $LOG_ROOT
 # Build the updates
 for PACKAGE in $UPGRADE_PACKAGES; do 
    cd $BUILD_SCRIPTS_ROOT
-   LOCATION=$(find . -type f -name $PACKAGE)
+   LOCATION=$(find . -type f -name $PACKAGE -print | cut -d/ -f2-)
    echo "Building $PACKAGE"
-   chroot $CHROOT /bin/bash -c "bash -e $LOCATION" &> $LOG_ROOT/$PACKAGE-$(date '+%m-%d-%Y').log
+   chroot $CHROOT /bin/bash -c "bash -e $CHROOT/Tucana-Build-Scripts/$LOCATION" &> $LOG_ROOT/$PACKAGE-$(date '+%m-%d-%Y').log
    if [[ $? -ne 0 ]]; then
      notify_failed_package "$PACKAGE" "1"
      sleep 2
