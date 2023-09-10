@@ -63,8 +63,10 @@ chroot_setup() {
   cd $AUTOBUILD_ROOT
   git clone https://github.com/xXTeraXx/Tucana.git
   # Change Install path and Repo
-  sed -i "s/INSTALL_PATH=.*/INSTALL_PATH=$CHROOT/g" Tucana/mercury/*
-  sed -i "s/REPO=.*/REPO=$REPO/g" Tucana/mercury/*
+  sed -i "s|INSTALL_PATH=.*|INSTALL_PATH=$CHROOT|g" Tucana/mercury/mercury-install
+  sed -i "s|INSTALL_PATH=.*|INSTALL_PATH=$CHROOT|g" Tucana/mercury/mercury-sync
+  sed -i "s|REPO=.*|REPO=$REPO|g" Tucana/mercury/mercury-install
+  sed -i "s|REPO=.*|REPO=$REPO|g" Tucana/mercury/mercury-sync
   
   # Install the base system
   cd Tucana/mercury
@@ -181,12 +183,12 @@ for PACKAGE in $UPGRADE_PACKAGES; do
   echo "$NEW_VERSIONS" | grep $PACKAGE | grep -E ': [0-9]+' &> /dev/null
   if [[ $? -ne 0 ]]; then
      echo "Currency check on $PACKAGE FAILED! Removing from upgrade list"
-     NEW_VERSIONS1=$(echo "$NEW_VERSIONS" | sed "s/$PACKAGE\ //g")
-     NEW_VERSIONS="$NEW_VERSIONS1"
+     UPGRADE_PACKAGES1=$(echo "$UPGRADE_PACKAGES" | sed "/$PACKAGE/d")
+     UPGRADE_PACKAGES="$UPGRADE_PACKAGES1"
      notify_failed_package "$PACKAGE" "2"
   else
      echo "$PACKAGE passed currency checks"
-     sed -i "s/PKG_VER=.*/PKG_VER=$(echo "$NEW_VERSIONS" | grep $PACKAGE | sed 's/.*:\ //')/g" $LOCATION
+     sed -i "s/PKG_VER=.*/PKG_VER=$(echo "$NEW_VERSIONS" | grep -E -x "^$PACKAGE:" | sed 's/.*:\ //')/g" $LOCATION
   fi
 done
 
