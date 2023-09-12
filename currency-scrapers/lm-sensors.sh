@@ -9,7 +9,6 @@ fi
 REPO=$(cat $(find . -name $PACKAGE) | grep URL | head -1 | sed 's/.*\.com//' | sed 's|/|!|3' | sed 's/!.*//' | sed 's/^.//')
 LATEST_VER=$(curl -Ls \
   -H "Accept: application/vnd.github+json" \
-  -H "Authorization: Bearer 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 "\
   -H "X-GitHub-Api-Version: 2022-11-28" \
   https://api.github.com/repos/$REPO/releases/latest | grep tag_name | sed 's/.$//' | sed 's/\"//g' | sed 's/.*://' | sed 's/^.//' | sed 's/.*-//g' | sed 's/v//')
 # Some apps have TAG_OVERRIDE because the tags are newer than the releases, in that case use those instead
@@ -22,7 +21,6 @@ fi
 if [[ -z $LATEST_VER ]]; then
   LATEST_VER=$(curl -Ls \
   -H "Accept: application/vnd.github+json" \
-  -H "Authorization: Bearer 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 "\
   -H "X-GitHub-Api-Version: 2022-11-28" \
   https://api.github.com/repos/$REPO/tags | grep name | sed 's/i2c\-.*\-km2//g' | sed 's/\-2\-3\-1//' |  sort -rV  | sed 's/.$//' | sed 's/\"//g' | sed 's/.*://' | sed 's/^.//' | sed 's/V//' | sort -rV | head -1 )
 fi
