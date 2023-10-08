@@ -27,7 +27,7 @@ Package name: (Version in repo)   (Version going to be built)
 
 
 for PACKAGE in $UPGRADE_PACKAGES; do
-  echo "$PACKAGE: $(cat $AUTOBUILD_ROOT/all-pkgver.txt | grep $PACKAGE | sed 's/.*://g') $(echo "$NEW_VERSIONS" | grep $PACKAGE | sed 's/.*://')" >> $AUTOBUILD_ROOT/email_upgrades.txt
+  echo "$PACKAGE: $(cat $AUTOBUILD_ROOT/all-pkgver.txt | grep -E "^$PACKAGE:" | sed 's/.*://g') $(echo "$NEW_VERSIONS" | grep -E "^$PACKAGE:" | sed 's/.*://')" >> $AUTOBUILD_ROOT/email_upgrades.txt
 done
 
 # Email the file (do this your own way this script will NOT be released)
@@ -59,6 +59,16 @@ echo "Emailing Results"
 /home/rahul/lfs/email_from_tucana.sh failed_$package.txt
 }
 chroot_setup() {
+
+
+  if [[ -d $CHROOT/dev ]]; then
+     umount $CHROOT/dev/pts
+     umount $CHROOT/dev
+     umount $CHROOT/proc
+     umount $CHROOT/sys
+     rm -rf $CHROOT
+  fi
+  sleep 3  
   # Subset of the installer script, check there for explanations
   cd $AUTOBUILD_ROOT
   git clone https://github.com/xXTeraXx/Tucana.git
@@ -84,7 +94,7 @@ chroot_setup() {
   
   # SSL and shadow first time setup
    # DNS
-  echo "nameserver 1.1.1.1" > $BUILD_DIR/squashfs-root/etc/resolv.conf
+  echo "nameserver 1.1.1.1" > $CHROOT/etc/resolv.conf
   chroot $CHROOT /bin/bash -c "make-ca -g --force"
   chroot $CHROOT /bin/bash -c "pwconv"
   
@@ -133,6 +143,18 @@ chroot_setup() {
 
    # Copy the build scripts 
    cp  -r $BUILD_SCRIPTS_ROOT $CHROOT/Tucana-Build-Scripts
+
+}
+install_make_depends() {
+  local PACKAGE=$1
+  sudo chroot $CHROOT /bin/bash -c "printf 'y' | mercury-install $PACKAGE"
+  local DEPENDS=$(cat $(find . -type f -name $PACKAGE -print | cut -d/ -f2-) | grep make-depends | grep -E -o '".*"' | sed 's/"//g')
+  echo $DEPENDS |  grep -E "[Aa-Zz]" 
+  if [[ $? == 0 ]]; then
+    sudo chroot $CHROOT /bin/bash -c "printf 'y' | mercury-install $DEPENDS"
+  else 
+    echo "No make depends found" 
+  fi 
 
 }
 # Generate the currency check script
@@ -188,7 +210,7 @@ for PACKAGE in $UPGRADE_PACKAGES; do
      notify_failed_package "$PACKAGE" "2"
   else
      echo "$PACKAGE passed currency checks"
-     sed -i "s/PKG_VER=.*/PKG_VER=$(echo "$NEW_VERSIONS" | grep -E -x "^$PACKAGE:" | sed 's/.*:\ //')/g" $LOCATION
+     sed -i "s/PKG_VER=.*/PKG_VER=$(echo "$NEW_VERSIONS" | grep -E "^$PACKAGE:" | sed 's/.*:\ //')/g" $LOCATION
   fi
 done
 
@@ -196,7 +218,6 @@ done
 echo "Preparing for build"
 echo "Creating Chroot"
 chroot_setup
-cp -rpv $BUILD_SCRIPTS_ROOT $CHROOT/blfs/builds
 # Prepare to do the final build (assuming host system is clean)
 cd $BUILD_SCRIPTS_ROOT
 mkdir -p $CHROOT/finished $CHROOT/pkgs $CHROOT/blfs/builds/
@@ -208,7 +229,10 @@ for PACKAGE in $UPGRADE_PACKAGES; do
    cd $BUILD_SCRIPTS_ROOT
    LOCATION=$(find . -type f -name $PACKAGE -print | cut -d/ -f2-)
    echo "Building $PACKAGE"
-   chroot $CHROOT /bin/bash -c "bash -e $CHROOT/Tucana-Build-Scripts/$LOCATION" &> $LOG_ROOT/$PACKAGE-$(date '+%m-%d-%Y').log
+   chroot $CHROOT /bin/bash -c "printf 'y' | mercury-install $PACKAGE"
+   echo "Installing Depends"
+   install_make_depends "$PACKAGE"
+   chroot $CHROOT /bin/bash -c "bash -e /Tucana-Build-Scripts/$LOCATION" &> $LOG_ROOT/$PACKAGE-$(date '+%m-%d-%Y').log
    if [[ $? -ne 0 ]]; then
      notify_failed_package "$PACKAGE" "1"
      sleep 2
