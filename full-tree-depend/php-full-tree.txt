@@ -1,0 +1,1 @@
+php apache libxml2 curl zip pcre2 apr-util nghttp2 openssl pcre2 zlib openldap-client apr libxml2 glibc perl glibc pam cyrus-sasl linux-api-headers gdbm libnsl berkeley-db bash readline rpcsvc-proto libtirpc readline ncurses

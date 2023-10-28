@@ -1,0 +1,1 @@
+libqalculate curl libxml2 nghttp2 openldap-client glibc pam cyrus-sasl linux-api-headers libnsl berkeley-db rpcsvc-proto libtirpc

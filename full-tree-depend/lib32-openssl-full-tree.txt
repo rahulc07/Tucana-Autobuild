@@ -1,0 +1,1 @@
+lib32-openssl glibc perl linux-api-headers gdbm glibc bash readline readline ncurses

@@ -1,0 +1,1 @@
+lib32-libXt lib32-libSM lib32-libX11 libXt lib32-libICE libSM lib32-libxcb xorgproto libX11 libSM lib32-glibc libICE lib32-libxau lib32-libXdmcp util-macros libxcb xorgproto linux-api-headers gcc lib32-libgcc glibc lib32-glibc libxau xcb-proto libXdmcp libgcc glibc zstd mpc mpfr gmp flex isl linux-api-headers xz zlib lz4 bash m4 gmp readline ncurses

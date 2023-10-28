@@ -1,0 +1,1 @@
+android-tools zlib libusb ncurses google-test glibc linux-api-headers

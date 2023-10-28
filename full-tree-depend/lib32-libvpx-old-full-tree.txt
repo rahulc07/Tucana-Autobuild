@@ -1,0 +1,1 @@
+lib32-libvpx-old lib32-libgcc libvpx lib32-glibc glibc yasm curl which linux-api-headers gcc lib32-libgcc linux-api-headers nghttp2 openldap-client libgcc glibc zstd mpc mpfr gmp flex isl libxml2 pam cyrus-sasl xz zlib lz4 bash m4 gmp libnsl berkeley-db readline ncurses rpcsvc-proto libtirpc

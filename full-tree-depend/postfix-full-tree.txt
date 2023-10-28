@@ -1,0 +1,1 @@
+postfix libnsl berkeley-db sqlite pcre icu rpcsvc-proto libtirpc libnsl bash bzip2 libgcc readline zlib llvm glibc ncurses glibc linux-api-headers

@@ -1,0 +1,1 @@
+mercury wget bash coreutils ca-certificates glibc libidn2 pcre2 zlib python nettle libpsl gnutls readline ncurses gettext gmp grep libcap openssl attr acl p11-kit linux-api-headers libunistring glibc sqlite libidn2 libunistring libtasn1 acl libgcc bash pcre perl nss bzip2 zlib gdbm nspr readline

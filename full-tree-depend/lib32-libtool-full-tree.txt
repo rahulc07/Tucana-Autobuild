@@ -1,0 +1,1 @@
+lib32-libtool libtool lib32-glibc lib32-libgcc linux-api-headers gcc glibc libgcc glibc zstd mpc mpfr gmp flex isl linux-api-headers xz zlib lz4 bash m4 gmp readline ncurses

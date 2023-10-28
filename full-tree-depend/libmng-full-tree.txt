@@ -1,0 +1,1 @@
+libmng libjpeg-turbo lcms yasm libtiff

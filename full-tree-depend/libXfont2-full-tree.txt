@@ -1,0 +1,1 @@
+libXfont2 freetype2 libfontenc libpng which harfbuzz brotli zlib gobject-introspection glib graphite2 icu glibc glib libxslt pcre docbook-xml docbook-xsl llvm linux-api-headers libxml2 bash bzip2 libgcc readline unzip sgml-common libxml2 glibc ncurses

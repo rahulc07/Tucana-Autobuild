@@ -1,0 +1,1 @@
+dbus glibc systemd expat linux-api-headers cryptsetup libgcrypt pcre2 libidn2 libseccomp iptables dbus glibc json-c lvm popt libgpg-error libunistring which libaio

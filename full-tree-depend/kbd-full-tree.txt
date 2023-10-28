@@ -1,0 +1,1 @@
+kbd bash coreutils glibc glibc readline ncurses gettext gmp grep libcap openssl attr acl linux-api-headers acl libgcc libunistring bash pcre perl bzip2 zlib gdbm readline

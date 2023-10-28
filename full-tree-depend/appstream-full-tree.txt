@@ -1,0 +1,1 @@
+appstream glib gobject-introspection xmlb libxslt pcre docbook-xml docbook-xsl glib libstemmer xz zstd libxml2 bash bzip2 libgcc readline zlib unzip sgml-common libxml2 glibc glibc zlib lz4 ncurses linux-api-headers

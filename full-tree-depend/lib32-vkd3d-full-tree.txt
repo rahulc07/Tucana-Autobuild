@@ -1,0 +1,1 @@
+lib32-vkd3d vkd3d lib32-libgcc spirv-tools libgcc lib32-glibc glibc libgcc spirv-headers linux-api-headers gcc linux-api-headers glibc zstd mpc mpfr gmp flex isl xz zlib lz4 bash m4 gmp readline ncurses

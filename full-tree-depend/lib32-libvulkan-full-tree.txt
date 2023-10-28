@@ -1,0 +1,1 @@
+lib32-libvulkan lib32-glibc libvulkan linux-api-headers gcc lib32-libgcc glibc libgcc glibc zstd mpc mpfr gmp flex isl linux-api-headers xz zlib lz4 bash m4 gmp readline ncurses

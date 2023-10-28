@@ -1,0 +1,1 @@
+accounts-service polkit gobject-introspection duktape glib glib glibc libxslt pcre docbook-xml docbook-xsl linux-api-headers libxml2 bash bzip2 libgcc readline zlib unzip sgml-common libxml2 glibc ncurses

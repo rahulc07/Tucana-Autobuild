@@ -148,15 +148,43 @@ chroot_setup() {
 install_make_depends() {
   local PACKAGE=$1
   sudo chroot $CHROOT /bin/bash -c "printf 'y' | mercury-install $PACKAGE"
-  local DEPENDS=$(cat $(find . -type f -name $PACKAGE -print | cut -d/ -f2-) | grep make-depends | grep -E -o '".*"' | sed 's/"//g')
-  echo $DEPENDS |  grep -E "[Aa-Zz]" 
+  cat $(find . -type f -name $PACKAGE -print | cut -d/ -f2-) | grep make-depends | grep -E -o '".*"' | sed 's/"//g' &> /dev/null
   if [[ $? == 0 ]]; then
-    sudo chroot $CHROOT /bin/bash -c "printf 'y' | mercury-install $DEPENDS"
-  else 
-    echo "No make depends found" 
-  fi 
-
+     local DEPENDS=$(cat $(find . -type f -name $PACKAGE -print | cut -d/ -f2-) | grep make-depends | grep -E -o '".*"' | sed 's/"//g')
+     echo $DEPENDS |  grep -E "[Aa-Zz]" 
+     if [[ $? == 0 ]]; then
+       sudo chroot $CHROOT /bin/bash -c "printf 'y' | mercury-install $DEPENDS"
+     else 
+       echo "No make depends found" 
+     fi 
+   fi   
 }
+
+order() {
+  local package=$1
+  cat $ROOT/full-tree-depend/$package-full-tree.txt > /dev/null
+  # Sanity check to make sure that the file exists
+  if [[ ! $? == 0 ]]; then
+     echo "WARNING: FULL TREE DEPENDS FILE NOT FOUND FOR $package"
+     echo "WARNING: FULL TREE DEPENDS FILE NOT FOUND FOR $package" > $LOG_ROOT/logs/depend-tree-$package.txt
+  fi
+
+  DEPENDS=$(cat $ROOT/full-tree-depend/$package-full-tree.txt)
+  # Loop through the depends, check to see whether it is in the current list of upgrade packages, if it is remove it from the list and add it back at the beginning so it goes first.
+  IFS=" "
+  for depend in $DEPENDS; do
+     echo "$UPGRADE_PACKAGES" | grep -E -x "$depend" > /dev/null
+     if [[ $? == 0 ]]; then
+        # Remove
+        UPGRADE_PACKAGES_TEMP="$(echo "$UPGRADE_PACKAGES_TEMP" | sed "/$depend/d")"
+        # Move it to the beginning
+        UPGRADE_PACKAGES_TEMP1="$(echo "$UPGRADE_PACKAGES_TEMP" | sed "1i $depend")"
+        UPGRADE_PACKAGES_TEMP="$UPGRADE_PACKAGES_TEMP1"
+     fi
+  done
+}
+
+
 # Generate the currency check script
 echo "Generating Currency Check Script"
 build_new_currency
@@ -214,6 +242,15 @@ for PACKAGE in $UPGRADE_PACKAGES; do
   fi
 done
 
+
+# Set the build order
+# Initalize the UPGRADE_PACKAGES_TEMP variable
+UPGRADE_PACKAGES_TEMP="$UPGRADE_PACKAGES"
+for PACKAGE in $UPGRADE_PACKAGES; do
+   order "$PACKAGE"
+done
+# Reset Var
+UPGRADE_PACKAGES="$UPGRADE_PACKAGES_TEMP"
 
 echo "Preparing for build"
 echo "Creating Chroot"

@@ -1,0 +1,1 @@
+lib32-pcre2 lib32-libgcc pcre2 lib32-glibc glibc linux-api-headers gcc lib32-libgcc linux-api-headers libgcc glibc zstd mpc mpfr gmp flex isl xz zlib lz4 bash m4 gmp readline ncurses

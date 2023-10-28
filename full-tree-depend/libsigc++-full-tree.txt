@@ -1,0 +1,1 @@
+libsigc++ boost libxslt which icu libxml2 docbook-xml docbook-xsl llvm unzip sgml-common libxml2

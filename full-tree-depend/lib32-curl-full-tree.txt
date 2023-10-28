@@ -1,0 +1,1 @@
+lib32-curl lib32-openssl lib32-glibc curl glibc perl linux-api-headers gcc lib32-libgcc nghttp2 openldap-client linux-api-headers gdbm glibc libgcc zstd mpc mpfr gmp flex isl libxml2 pam cyrus-sasl bash readline xz zlib lz4 bash m4 gmp libnsl berkeley-db readline ncurses rpcsvc-proto libtirpc

@@ -1,0 +1,1 @@
+newt popt slang gpm pcre libpng bash bzip2 libgcc readline zlib glibc ncurses glibc linux-api-headers

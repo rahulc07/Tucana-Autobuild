@@ -1,0 +1,1 @@
+build-essentials bash coreutils grep m4 make perl sed texinfo glibc readline ncurses gettext gmp libcap openssl attr acl pcre glibc gdbm linux-api-headers acl libgcc libunistring bash perl bzip2 zlib readline

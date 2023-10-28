@@ -1,0 +1,1 @@
+mailutils gnutls cyrus-sasl pam openldap-client nettle libunistring libtasn1 berkeley-db glibc libnsl cyrus-sasl glibc linux-api-headers rpcsvc-proto libtirpc

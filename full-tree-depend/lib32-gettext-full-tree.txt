@@ -1,0 +1,1 @@
+lib32-gettext gettext lib32-glibc lib32-libgcc acl bash glibc libgcc libunistring linux-api-headers gcc glibc attr readline ncurses linux-api-headers zstd mpc mpfr gmp flex isl xz zlib lz4 bash m4 gmp

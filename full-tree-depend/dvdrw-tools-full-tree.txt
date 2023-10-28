@@ -1,0 +1,1 @@
+dvdrw-tools cdrtools alsa-lib

@@ -1,0 +1,1 @@
+lib32-kmod kmod lib32-glibc lib32-libgcc lib32-zlib lib32-xz glibc xz zlib linux-api-headers gcc lib32-libgcc glibc linux-api-headers libgcc zstd mpc mpfr gmp flex isl zlib lz4 bash m4 gmp readline ncurses

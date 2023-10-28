@@ -1,0 +1,1 @@
+meson ninja binutils gcc coreutils python libgcc glibc zstd mpc mpfr gmp flex isl gettext grep libcap openssl attr acl sqlite glibc linux-api-headers xz zlib lz4 bash m4 gmp acl bash libunistring pcre perl readline ncurses bzip2 zlib gdbm readline

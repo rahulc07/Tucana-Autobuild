@@ -1,0 +1,1 @@
+vkd3d spirv-tools libgcc libgcc spirv-headers glibc linux-api-headers

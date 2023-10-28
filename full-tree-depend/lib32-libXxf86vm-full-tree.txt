@@ -1,0 +1,1 @@
+lib32-libXxf86vm libXext libXxf86vm libX11 libXext libxcb xorgproto libxau xcb-proto libXdmcp util-macros

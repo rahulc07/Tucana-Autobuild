@@ -1,0 +1,1 @@
+cinnamon-menus glib libxslt pcre docbook-xml docbook-xsl libxml2 bash bzip2 libgcc readline zlib unzip sgml-common libxml2 glibc ncurses glibc linux-api-headers

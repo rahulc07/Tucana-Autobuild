@@ -1,0 +1,1 @@
+efibootmgr efivar popt glibc linux-api-headers

@@ -1,0 +1,1 @@
+lib32-util-linux util-linux lib32-glibc glibc libcap ncurses readline zlib linux-api-headers gcc lib32-libgcc linux-api-headers glibc ncurses libgcc zstd mpc mpfr gmp flex isl lib32-glibc xz zlib lz4 bash m4 gmp

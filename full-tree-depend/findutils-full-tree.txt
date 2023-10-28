@@ -1,0 +1,1 @@
+findutils bash glibc glibc readline ncurses linux-api-headers

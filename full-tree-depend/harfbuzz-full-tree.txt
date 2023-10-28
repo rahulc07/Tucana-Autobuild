@@ -1,0 +1,1 @@
+harfbuzz gobject-introspection glib graphite2 icu glib libxslt pcre docbook-xml docbook-xsl llvm libxml2 bash bzip2 libgcc readline zlib unzip sgml-common libxml2 glibc ncurses glibc linux-api-headers

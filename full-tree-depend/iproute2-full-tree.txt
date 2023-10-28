@@ -1,0 +1,1 @@
+iproute2 bash coreutils glibc libcap libelf zlib readline ncurses gettext gmp grep openssl attr acl linux-api-headers glibc acl libgcc libunistring bash pcre perl bzip2 gdbm readline

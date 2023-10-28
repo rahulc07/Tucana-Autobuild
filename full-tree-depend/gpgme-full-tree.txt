@@ -1,0 +1,1 @@
+gpgme libassuan gnupg libgpg-error libgcrypt libksba npth gnutls nettle libunistring libtasn1 glibc linux-api-headers

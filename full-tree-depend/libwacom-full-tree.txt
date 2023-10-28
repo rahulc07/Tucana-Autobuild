@@ -1,0 +1,1 @@
+libwacom libgudev libxml2 glib gobject-introspection libxslt pcre docbook-xml docbook-xsl glib libxml2 bash bzip2 libgcc readline zlib unzip sgml-common glibc ncurses glibc linux-api-headers

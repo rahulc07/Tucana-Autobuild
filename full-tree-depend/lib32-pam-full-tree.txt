@@ -1,0 +1,1 @@
+lib32-pam lib32-glibc pam linux-api-headers gcc lib32-libgcc glibc libnsl libgcc zstd mpc mpfr gmp flex isl glibc linux-api-headers rpcsvc-proto libtirpc xz zlib lz4 bash m4 gmp readline ncurses

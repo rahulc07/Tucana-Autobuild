@@ -1,0 +1,1 @@
+lib32-openldap lib32-glibc lib32-pam openldap-client linux-api-headers gcc lib32-libgcc pam glibc pam cyrus-sasl libgcc zstd mpc mpfr gmp flex isl glibc libnsl linux-api-headers berkeley-db xz zlib lz4 bash m4 gmp rpcsvc-proto libtirpc readline ncurses

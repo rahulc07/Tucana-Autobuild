@@ -1,0 +1,1 @@
+pinentry libassuan libgpg-error

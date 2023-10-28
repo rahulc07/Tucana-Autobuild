@@ -1,0 +1,1 @@
+shared-mime-info itstool xmlto glib libxml2 docbook-xml docbook-xml docbook-xsl libxslt libxslt pcre docbook-xsl unzip libxml2 sgml-common bash bzip2 libgcc readline zlib glibc ncurses glibc linux-api-headers

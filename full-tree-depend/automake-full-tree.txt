@@ -1,0 +1,1 @@
+automake bash coreutils grep m4 sed texinfo automake glibc readline ncurses gettext gmp libcap openssl attr acl pcre glibc linux-api-headers acl libgcc libunistring bash perl bzip2 zlib gdbm readline

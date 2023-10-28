@@ -1,0 +1,1 @@
+slapd mariadb cyrus-sasl pam coreutils iproute2 berkeley-db glibc libnsl gettext gmp grep libcap openssl attr acl bash libelf zlib linux-api-headers rpcsvc-proto libtirpc acl libgcc libunistring bash pcre perl glibc readline ncurses bzip2 gdbm readline

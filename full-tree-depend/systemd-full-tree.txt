@@ -1,0 +1,1 @@
+systemd cryptsetup libgcrypt pcre2 libidn2 libseccomp iptables dbus json-c lvm popt libgpg-error libunistring which glibc expat libaio linux-api-headers glibc

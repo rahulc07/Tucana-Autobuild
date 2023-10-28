@@ -1,0 +1,1 @@
+libxslt libxml2 docbook-xml docbook-xsl unzip sgml-common libxml2

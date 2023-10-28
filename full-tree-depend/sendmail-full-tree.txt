@@ -1,0 +1,1 @@
+sendmail openldap-client cyrus-sasl glibc pam berkeley-db linux-api-headers libnsl rpcsvc-proto libtirpc

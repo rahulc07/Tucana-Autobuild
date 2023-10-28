@@ -1,0 +1,1 @@
+openldap cyrus-sasl gnutls libtool openldap-client berkeley-db nettle libunistring libtasn1 glibc pam cyrus-sasl libnsl glibc linux-api-headers rpcsvc-proto libtirpc

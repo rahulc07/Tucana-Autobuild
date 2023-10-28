@@ -1,0 +1,1 @@
+coreutils gettext glibc gmp grep libcap openssl attr acl acl bash libgcc libunistring linux-api-headers bash pcre perl glibc readline ncurses bzip2 zlib gdbm readline

@@ -1,0 +1,1 @@
+ca-certificate-utils bash ca-certificates coreutils findutils p11-kit glibc readline ncurses gettext gmp grep libcap openssl attr acl glibc nss libtasn1 linux-api-headers acl libgcc libunistring bash pcre perl nspr sqlite bzip2 zlib gdbm readline

@@ -1,0 +1,1 @@
+lib32-openal openal lib32-libgcc alsa-lib libgcc lib32-glibc glibc linux-api-headers gcc linux-api-headers libgcc glibc zstd mpc mpfr gmp flex isl xz zlib lz4 bash m4 gmp readline ncurses

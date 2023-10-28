@@ -1,0 +1,1 @@
+wpa_supplicant libnl desktop-file-utils libxml2 glib libxslt pcre docbook-xml docbook-xsl libxml2 bash bzip2 libgcc readline zlib unzip sgml-common glibc ncurses glibc linux-api-headers

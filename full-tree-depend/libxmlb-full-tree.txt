@@ -1,0 +1,1 @@
+libxmlb libstemmer xz zstd glib glibc libgcc glibc zlib lz4 libxslt pcre docbook-xml docbook-xsl linux-api-headers libxml2 bash bzip2 readline zlib unzip sgml-common libxml2 ncurses

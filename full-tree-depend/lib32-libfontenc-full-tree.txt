@@ -1,0 +1,1 @@
+lib32-libfontenc lib32-zlib libfontenc glibc zlib linux-api-headers

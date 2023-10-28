@@ -1,0 +1,1 @@
+pygobject2 glib pycairo python2 gobject-introspection libxslt pcre docbook-xml docbook-xsl sqlite glib libxml2 bash bzip2 libgcc readline zlib unzip sgml-common libxml2 glibc ncurses glibc linux-api-headers

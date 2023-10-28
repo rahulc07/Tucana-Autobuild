@@ -1,0 +1,1 @@
+lib32-libelf lib32-bzip2 lib32-libgcc lib32-xz lib32-zlib lib32-zstd libelf glibc bzip2 lib32-glibc glibc zlib linux-api-headers linux-api-headers gcc lib32-libgcc libgcc zstd mpc mpfr gmp flex isl xz zlib lz4 bash m4 gmp readline ncurses

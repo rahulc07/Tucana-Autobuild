@@ -1,0 +1,1 @@
+perl-xml-parser perl expat glibc gdbm linux-api-headers bash glibc readline readline ncurses

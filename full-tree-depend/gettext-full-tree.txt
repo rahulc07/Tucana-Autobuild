@@ -1,0 +1,1 @@
+gettext acl bash glibc libgcc libunistring attr glibc readline ncurses linux-api-headers

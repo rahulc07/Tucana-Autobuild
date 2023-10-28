@@ -1,0 +1,1 @@
+lib32-libpciaccess lib32-zlib libpciaccess glibc zlib linux-api-headers

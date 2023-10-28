@@ -1,0 +1,1 @@
+cmake libuv curl libarchive nghttp2 nghttp2 openldap-client libxml2 glibc pam cyrus-sasl linux-api-headers libnsl berkeley-db rpcsvc-proto libtirpc

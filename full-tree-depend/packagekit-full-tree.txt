@@ -1,0 +1,1 @@
+packagekit sqlite polkit glib duktape glib gobject-introspection libxslt pcre docbook-xml docbook-xsl glibc libxml2 bash bzip2 libgcc readline zlib unzip sgml-common libxml2 linux-api-headers glibc ncurses

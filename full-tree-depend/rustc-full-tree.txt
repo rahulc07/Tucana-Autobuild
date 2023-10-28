@@ -1,0 +1,1 @@
+rustc clang gcc curl libssh2 glibc libgcc glibc zstd mpc mpfr gmp flex isl nghttp2 openldap-client linux-api-headers xz zlib lz4 bash m4 gmp libxml2 pam cyrus-sasl readline ncurses libnsl berkeley-db rpcsvc-proto libtirpc

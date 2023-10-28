@@ -1,0 +1,1 @@
+lib32-glib glib lib32-pcre2 lib32-libffi lib32-util-linux lib32-zlib libxslt pcre docbook-xml docbook-xsl lib32-libgcc pcre2 libffi lib32-glibc util-linux glibc libxml2 bash bzip2 libgcc readline zlib unzip sgml-common libxml2 lib32-glibc linux-api-headers gcc lib32-libgcc glibc libcap ncurses linux-api-headers ncurses zstd mpc mpfr gmp flex isl xz zlib lz4 bash m4 gmp

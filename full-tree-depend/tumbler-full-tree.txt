@@ -1,0 +1,1 @@
+tumbler glib freetype2 libpng libjpeg-turbo libxslt pcre docbook-xml docbook-xsl which harfbuzz brotli yasm libxml2 bash bzip2 libgcc readline zlib unzip sgml-common libxml2 gobject-introspection graphite2 icu glibc ncurses glibc glib llvm linux-api-headers

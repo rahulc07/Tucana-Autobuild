@@ -1,0 +1,1 @@
+lib32-libcap attr bash binutils coreutils gcc glibc perl make sed glibc readline ncurses gettext gmp grep libcap openssl acl libgcc zstd mpc mpfr flex isl linux-api-headers gdbm acl libunistring bash pcre perl xz zlib lz4 m4 gmp readline bzip2 zlib

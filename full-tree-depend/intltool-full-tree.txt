@@ -1,0 +1,1 @@
+intltool bash glibc grep perl sed readline ncurses linux-api-headers pcre gdbm glibc bzip2 libgcc zlib readline

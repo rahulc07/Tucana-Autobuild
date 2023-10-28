@@ -1,0 +1,1 @@
+apache apr-util nghttp2 openssl pcre2 zlib apr libxml2 glibc perl glibc linux-api-headers gdbm bash readline readline ncurses

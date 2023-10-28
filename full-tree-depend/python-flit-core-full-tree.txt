@@ -1,0 +1,1 @@
+python-flit-core python python-build python-requests python-urllib3 python-chardet python-idna python-certifi python-docutils sqlite python-flit python

@@ -1,0 +1,1 @@
+lib32-check lib32-glibc check linux-api-headers gcc lib32-libgcc gawk bash libgcc glibc zstd mpc mpfr gmp flex isl glibc bash mpfr readline ncurses linux-api-headers xz zlib lz4 m4 gmp

@@ -1,0 +1,1 @@
+shadow glibc pam linux-api-headers libnsl rpcsvc-proto libtirpc

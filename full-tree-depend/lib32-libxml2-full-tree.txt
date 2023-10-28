@@ -1,0 +1,1 @@
+lib32-libxml2 libxml2 lib32-glibc lib32-zlib lib32-icu lib32-xz linux-api-headers gcc lib32-libgcc glibc lib32-libgcc icu libgcc glibc zstd mpc mpfr gmp flex isl linux-api-headers llvm xz zlib lz4 bash m4 gmp readline ncurses

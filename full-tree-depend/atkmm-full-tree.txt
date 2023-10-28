@@ -1,0 +1,1 @@
+atkmm atk glibmm gobject-introspection glib glib libsigc++ gnutls libxslt libxslt pcre docbook-xml docbook-xsl boost nettle libunistring libtasn1 libxml2 bash bzip2 libgcc readline zlib unzip sgml-common libxml2 which icu glibc glibc ncurses llvm linux-api-headers

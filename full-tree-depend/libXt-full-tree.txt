@@ -1,0 +1,1 @@
+libXt libSM libX11 libICE libxcb xorgproto glibc libxau xcb-proto libXdmcp util-macros linux-api-headers

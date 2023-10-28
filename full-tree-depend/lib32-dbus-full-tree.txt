@@ -1,0 +1,1 @@
+lib32-dbus dbus lib32-glibc lib32-systemd expat glibc systemd linux-api-headers gcc lib32-libgcc systemd glibc linux-api-headers cryptsetup libgcrypt pcre2 libidn2 libseccomp iptables dbus libgcc zstd mpc mpfr gmp flex isl json-c lvm popt libgpg-error libunistring which xz zlib lz4 bash m4 gmp libaio readline ncurses

@@ -1,0 +1,1 @@
+readline glibc ncurses linux-api-headers glibc

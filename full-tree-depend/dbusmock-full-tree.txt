@@ -1,0 +1,1 @@
+dbusmock dbus-python dbus glib pygobject3 glibc systemd expat libxslt pcre docbook-xml docbook-xsl gobject-introspection pycairo linux-api-headers cryptsetup libgcrypt pcre2 libidn2 libseccomp iptables dbus glibc libxml2 bash bzip2 libgcc readline zlib unzip sgml-common libxml2 glib json-c lvm popt libgpg-error libunistring which ncurses libaio

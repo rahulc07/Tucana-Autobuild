@@ -1,0 +1,1 @@
+gtk-doc docbook-xml docbook-xsl itstool libxslt pygments which glib unzip libxml2 sgml-common libxml2 docbook-xml docbook-xsl pcre bash bzip2 libgcc readline zlib glibc ncurses glibc linux-api-headers

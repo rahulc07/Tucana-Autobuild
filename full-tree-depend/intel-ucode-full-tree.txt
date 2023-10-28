@@ -1,0 +1,1 @@
+intel-ucode linux-tucana linux-firmware linux-tucana
