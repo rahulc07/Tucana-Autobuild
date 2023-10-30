@@ -102,7 +102,7 @@ isl: 1
 iso-codes: iso-codes.sh
 jansson: 3
 jq: 3
-js102: js102.sh
+js115: js115.sh
 json: 7
 kcolorpicker: 3
 keyutils: keyutils.sh
