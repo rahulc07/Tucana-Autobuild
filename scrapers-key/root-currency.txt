@@ -279,3 +279,4 @@ iptables: 1
 go: 7
 amtk: 3
 xxhash: 3
+ruby: ruby.sh
