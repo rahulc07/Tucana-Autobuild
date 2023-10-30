@@ -144,6 +144,8 @@ chroot_setup() {
    # Copy the build scripts 
    cp  -r $BUILD_SCRIPTS_ROOT $CHROOT/Tucana-Build-Scripts
 
+   # Make usr/src for kernel builds
+   mkdir -p $CHROOT/usr/src
 }
 install_make_depends() {
   local PACKAGE=$1
@@ -171,7 +173,6 @@ order() {
 
   DEPENDS=$(cat $ROOT/full-tree-depend/$package-full-tree.txt)
   # Loop through the depends, check to see whether it is in the current list of upgrade packages, if it is remove it from the list and add it back at the beginning so it goes first.
-  IFS=" "
   for depend in $DEPENDS; do
      echo "$UPGRADE_PACKAGES" | grep -E -x "$depend" > /dev/null
      if [[ $? == 0 ]]; then

@@ -278,3 +278,4 @@ mpg123: 7
 iptables: 1
 go: 7
 amtk: 3
+xxhash: 3

@@ -1,1 +1,1 @@
-libvulkan glibc linux-api-headers
+libvulkan glibc linux-api-headers vulkan-headers
