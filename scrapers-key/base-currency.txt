@@ -71,3 +71,4 @@ xz: 1
 zlib: zlib
 zstd: 3
 libxcrypt: 3
+meson: 3
