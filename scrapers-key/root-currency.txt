@@ -88,7 +88,7 @@ hicolor-icons: 1
 highlight: 7
 htop: 3
 hwdata: 3
-i3: 1
+i3wm: 1
 i3status: 1
 ibus: 3
 icu: icu.sh

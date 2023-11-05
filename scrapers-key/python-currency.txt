@@ -26,8 +26,11 @@ python-requests: pypi.sh
 python-setproctitle: pypi.sh
 python-six: 3
 python-tomli-w: pypi.sh
-python-tomli-w: pypi.sh
 python-urllib3: 3
 pyyaml: pypi.sh
 setuptools: pypi.sh
 wheel: pypi.sh
+gi-docgen: pypi.sh
+python-hatchling: pypi.sh
+python-editables: pypi.sh
+python-pathspec: pypi.sh
