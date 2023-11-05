@@ -146,6 +146,7 @@ chroot_setup() {
 
    # Make usr/src for kernel builds
    mkdir -p $CHROOT/usr/src
+
 }
 install_make_depends() {
   local PACKAGE=$1
