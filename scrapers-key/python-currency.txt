@@ -17,7 +17,6 @@ python-installer: 3
 python-lxml: 3
 python-pam: pypi.sh
 python-pexpect: pypi.sh
-python-pillow: p
 python-pillow: 3
 python-psutil: pypi.sh
 python-ptyprocess: pypi.sh
@@ -34,3 +33,12 @@ gi-docgen: pypi.sh
 python-hatchling: pypi.sh
 python-editables: pypi.sh
 python-pathspec: pypi.sh
+python-pluggy: pypi.sh
+setuptools-scm: pypi.sh
+python-typing-extensions: pypi.sh
+python-calver: 3
+python-trove-classifers: pypi.sh
+python-markdown: pypi.sh
+pyproject-hooks: pypi.sh
+python-typogrify: pypi.sh
+python-smartypants: 3

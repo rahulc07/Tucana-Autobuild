@@ -1,1 +1,1 @@
-gi-docgen python sqlite
+gi-docgen python sqlite python-markdown python-build python-installer pyproject-hooks

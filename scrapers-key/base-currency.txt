@@ -74,3 +74,4 @@ zstd: 3
 libxcrypt: 3
 meson: 3
 libei: 8
+jinja: jinja.sh
