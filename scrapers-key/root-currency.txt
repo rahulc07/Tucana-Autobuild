@@ -309,3 +309,4 @@ geocode-glib: 4
 geocode-glib-2: 4
 folks: 4
 libshumate: 4
+libraw: 7
