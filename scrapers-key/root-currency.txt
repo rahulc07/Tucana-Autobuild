@@ -37,7 +37,6 @@ dbusmock: 3
 ddccontrol: 3
 ddccontrol-db: 3
 desktop-file-utils: 1
-dhcp: dhcp.sh
 dmenu: 1
 docbook-xml: docbook-xml.sh
 duktape: duktape.sh
@@ -311,3 +310,8 @@ folks: 4
 libshumate: 4
 libraw: 7
 sddm: 3
+dbus-glib: 1
+bluez: 1
+libexif: 3
+dhcpcd: 3
+adwaita: 5

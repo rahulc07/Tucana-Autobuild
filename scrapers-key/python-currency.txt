@@ -42,3 +42,5 @@ python-markdown: pypi.sh
 pyproject-hooks: pypi.sh
 python-typogrify: pypi.sh
 python-smartypants: 3
+python-looseversion: pypi.sh
+python-packaging: pypi.sh
