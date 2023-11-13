@@ -24,7 +24,7 @@ python-pytz: pypi.sh
 python-requests: pypi.sh
 python-setproctitle: pypi.sh
 python-six: 3
-python-tomli-w: pypi.sh
+tomli-w: pypi.sh
 python-urllib3: 3
 pyyaml: pypi.sh
 setuptools: pypi.sh

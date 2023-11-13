@@ -315,3 +315,4 @@ bluez: 1
 libexif: 3
 dhcpcd: 3
 adwaita: 5
+firefox-esr: js115.sh
