@@ -9,7 +9,6 @@ python-certifi: pypi.sh
 python-chardet: 3
 python-distro: pypi.sh
 python-docutils: pypi.sh
-python-flit: pypi.sh
 python-flit: 3
 python-flit-core: pypi.sh
 python-idna: 3
