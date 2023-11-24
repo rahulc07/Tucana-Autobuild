@@ -99,7 +99,7 @@ chroot_setup() {
   chroot $CHROOT /bin/bash -c "pwconv"
   
   # Kernel & Build Essentials (steam is the easiest way to get the lib32 stuff)
-  chroot $CHROOT /bin/bash -c "printf 'y\n' | mercury-install linux-tucana mpc gcc binutils steam automake autoconf ninja meson cmake make flex bison gawk gperf pkgconf file patch gettext perl texinfo less check m4 bc glslang vulkan-headers git gobject-introspection gi-docgen pyproject-hooks"
+  chroot $CHROOT /bin/bash -c "printf 'y\n' | mercury-install linux-tucana mpc gcc binutils steam automake autoconf ninja meson cmake make flex bison gawk gperf pkgconf file patch gettext perl texinfo less check m4 bc glslang vulkan-headers git gobject-introspection gi-docgen pyproject-hooks python-build python-installer"
   
   # Locale
   echo "Building Locales"
@@ -154,7 +154,7 @@ install_make_depends() {
   cat $(find . -type f -name $PACKAGE -print | cut -d/ -f2-) | grep make-depends | grep -E -o '".*"' | sed 's/"//g' &> /dev/null
   if [[ $? == 0 ]]; then
      local DEPENDS=$(cat $(find . -type f -name $PACKAGE -print | cut -d/ -f2-) | grep make-depends | grep -E -o '".*"' | sed 's/"//g')
-     echo $DEPENDS |  grep -E "[Aa-Zz]" 
+     echo $DEPENDS |  grep -E "[[:alpha:]]" 
      if [[ $? == 0 ]]; then
        sudo chroot $CHROOT /bin/bash -c "printf 'y' | mercury-install $DEPENDS"
      else 
