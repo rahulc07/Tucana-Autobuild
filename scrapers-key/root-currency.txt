@@ -252,9 +252,9 @@ virt-viewer: 1
 vkd3d: 1
 vlc: 2
 wayland-protocols: 8
-webkitgtk: 1
-webkitgtk4.1: 1
-webkitgtk5.0: 1
+webkitgtk: webkitgtk.sh
+webkitgtk4.1: webkitgtk.sh
+webkitgtk5.0: webkitgtk.sh
 webp-pixbuf-loader: 3
 wget: 1
 which: 1
