@@ -43,3 +43,7 @@ python-typogrify: pypi.sh
 python-smartypants: 3
 python-looseversion: pypi.sh
 python-packaging: pypi.sh
+python-pyqt5: pypi.sh
+python-sip: pypi.sh
+python-pyqt5-sip: pypi.sh
+
