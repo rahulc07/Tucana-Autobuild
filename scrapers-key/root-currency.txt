@@ -318,3 +318,5 @@ adwaita: 5
 firefox-esr: js115.sh
 rdfind: rdfind.sh
 swig: 6
+libavif: 3
+wireplumber: 8
