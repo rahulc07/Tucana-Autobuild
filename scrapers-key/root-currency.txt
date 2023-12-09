@@ -86,7 +86,7 @@ harfbuzz: 3
 hicolor-icons: 1
 highlight: 7
 htop: 3
-hwdata: 3
+hwdata: hwdata.sh
 i3wm: 1
 i3status: 1
 ibus: 3
@@ -280,7 +280,7 @@ amtk: 3
 xxhash: 3
 ruby: ruby.sh
 libxklavier: 1
-gtk4: 4
+gtk4: gvfs.sh
 rest: 4
 glade: 4
 libadwaita: 4
