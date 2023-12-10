@@ -322,3 +322,6 @@ libavif: 3
 wireplumber: 8
 pythonqt: 3
 screen: 1
+exiv2: 3
+inih: 3
+libtiff: 1
