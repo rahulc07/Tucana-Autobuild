@@ -321,3 +321,4 @@ swig: 6
 libavif: 3
 wireplumber: 8
 pythonqt: 3
+screen: 1
