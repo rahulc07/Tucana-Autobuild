@@ -325,3 +325,4 @@ screen: 1
 exiv2: 3
 inih: 3
 libtiff: 1
+jasper: 3
