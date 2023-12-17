@@ -47,7 +47,6 @@ make: 1
 man-db: 1
 mandoc: 1
 man-pages: 1
-meson: 3
 ncurses: 1
 ninja: 3
 openssl: 1

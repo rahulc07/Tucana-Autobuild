@@ -326,3 +326,5 @@ exiv2: 3
 inih: 3
 libtiff: 1
 jasper: 3
+enchant: 3
+aspell: 1
