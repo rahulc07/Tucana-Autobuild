@@ -49,7 +49,7 @@ feh: 3
 ffmpeg: 1
 firefox: firefox.sh
 flatpak: 3
-fltk: 3
+fltk: fltk.sh
 fmt: 3
 fontconfig: 1
 freeglut: 3
