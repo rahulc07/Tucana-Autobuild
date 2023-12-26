@@ -330,3 +330,8 @@ enchant: 3
 aspell: 1
 qpdf: 3
 screen: 1
+xdg-desktop-portal: 3
+xdg-desktop-portal-gtk: 3
+xdg-desktop-portal-gnome: 5
+power-profiles-daemon: 8
+vulkan-headers: libvulkan.sh

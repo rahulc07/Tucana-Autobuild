@@ -6,7 +6,7 @@ cat $(find . -name $PACKAGE) | grep github &> /dev/null
 if [[ $? -ne 0 ]]; then
    exit 1
 fi
-REPO=$(cat $(find . -name $PACKAGE) | grep URL | head -1 | sed 's/.*\.com//' | sed 's|/|!|3' | sed 's/!.*//' | sed 's/^.//')
+REPO="KhronosGroup/Vulkan-Loader"
 LATEST_VER=$(curl -Ls \
   -H "Accept: application/vnd.github+json" \
   -H "Authorization: Bearer $GITHUB_API_KEY "\
