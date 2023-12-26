@@ -3,7 +3,9 @@ source autobuild.conf
 SCRIPTS_PATH=$SCRAPER_LOCATIONS/
 URL="https://archive.mozilla.org/pub/security/nss/releases/"
 PACKAGE_PREFIX=$(cat $(find $BUILD_SCRIPTS_ROOT/ -name $1) | grep URL | head -1 | sed 's/URL=//g'| sed -r 's|(.*)/||'| sed 's|.tar.*||g' | sed 's|-[^-]*$||g')
-LATEST_FOLDER=$(python3 $SCRIPTS_PATH/classic-scrape-recursive.py 'https://archive.mozilla.org/pub/security/nss/releases/' | sort -rV | sed 's/export-notice//g' | sort -rV | head -1)
-echo $LATEST_FOLDER | sed 's/NSS_//g' | sed 's/_RTM.*//g' | sed 's/_/\./g'
+LATEST_FOLDER=$(python3 $SCRIPTS_PATH/classic-scrape-recursive.py 'https://archive.mozilla.org/pub/security/nss/releases/' | sort -rV | sed 's/export-notice//g' | sort -rV)
+echo "$LATEST_FOLDER" | sed -e 's/NSS_//g' -e 's/_RTM.*//g' -e 's/_/\./g' | sort -rV | head -1
+
+
 
 

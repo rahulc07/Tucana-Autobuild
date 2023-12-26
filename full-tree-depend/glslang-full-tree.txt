@@ -1,1 +1,1 @@
-glslang libgcc glibc linux-api-headers
+spirv-tools glslang libgcc glibc linux-api-headers
