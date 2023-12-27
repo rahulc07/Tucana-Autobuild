@@ -61,7 +61,7 @@ gdb: 1
 gdk-pixbuf: 4
 geoclue: 8
 git: 1
-glib: 4
+glib: gvfs.sh
 glib-networking: 4
 glm: 3
 glslang: 3
