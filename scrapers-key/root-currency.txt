@@ -335,3 +335,5 @@ xdg-desktop-portal-gtk: 3
 xdg-desktop-portal-gnome: 5
 power-profiles-daemon: 8
 vulkan-headers: libvulkan.sh
+iw: 1
+icewm: 3
