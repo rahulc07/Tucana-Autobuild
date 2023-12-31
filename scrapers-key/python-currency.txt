@@ -13,7 +13,7 @@ python-flit: 3
 python-flit-core: pypi.sh
 python-idna: 3
 python-installer: 3
-python-lxml: 3
+python-lxml: lxml
 python-pam: pypi.sh
 python-pexpect: pypi.sh
 python-pillow: 3
