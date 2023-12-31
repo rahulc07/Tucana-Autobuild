@@ -67,7 +67,7 @@ glm: 3
 glslang: 3
 glu: 1
 gnutls: 2
-gobject-introspection: 4
+gobject-introspection: gvfs.sh
 google-test: 3
 gpgme: 1
 gpm: 1
