@@ -337,3 +337,4 @@ power-profiles-daemon: 8
 vulkan-headers: libvulkan.sh
 iw: 1
 icewm: 3
+postfix: 7
