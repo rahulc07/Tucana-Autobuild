@@ -338,3 +338,6 @@ vulkan-headers: libvulkan.sh
 iw: 1
 icewm: 3
 postfix: 7
+cryptsetup: 7
+json-c: 7
+asciidoctor: 3

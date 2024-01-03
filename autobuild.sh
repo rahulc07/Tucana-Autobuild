@@ -241,6 +241,15 @@ for PACKAGE in $UPGRADE_PACKAGES; do
   else
      echo "$PACKAGE passed currency checks"
      sed -i "s/PKG_VER=.*/PKG_VER=$(echo "$NEW_VERSIONS" | grep -E "^$PACKAGE:" | sed 's/.*:\ //')/g" $LOCATION
+     # Lib32 check
+     if [[ $(cat $CURRENCY_TXT_LOCATIONS/lib32-match.txt) | grep $PACKAGE ]]; then
+       echo "Lib32 match found for $PACKAGE"
+       # Add lib32 package to the upgrade list
+       UPGRADE_PACKAGES="$UPGRADE_PACKAGES lib32-$PACKAGE"
+       # change the pkgver in the lib32 packages
+       sed -i "s/PKG_VER=.*/PKG_VER=$(echo "$NEW_VERSIONS" | grep -E "^$PACKAGE:" | sed 's/.*:\ //')/g" $(find . -name lib32-$PACKAGE)
+     fi
+       
   fi
 done
 
