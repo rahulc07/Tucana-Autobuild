@@ -341,3 +341,4 @@ postfix: 7
 cryptsetup: 7
 json-c: 7
 asciidoctor: 3
+rsync: 1
