@@ -51,7 +51,7 @@ ncurses: 1
 ninja: 3
 openssl: 1
 patch: 1
-perl: 7
+perl: perl.sh
 perl-xml-parser: 1
 pkgconf: 3
 procps-ng: 7
