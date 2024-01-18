@@ -7,4 +7,5 @@ echo "$FILES" | while IFS= read -r file; do
 done
 # Set Working directory
 sed -i "s|ROOT\=PUTROOTHERE|ROOT=$(pwd)|" autobuild.conf
+sudo mercury-install --y jq
 

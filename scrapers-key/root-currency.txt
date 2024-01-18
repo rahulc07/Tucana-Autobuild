@@ -296,7 +296,7 @@ brasero: 4
 caribou: 4
 gfbgraph: 4
 tracker-miners: 4
-tracker: 4
+tracker: gnome-2.sh
 totem-pl-parser: 4
 libpeas: 7
 libgweather: 4
@@ -307,7 +307,7 @@ libcroco: 4
 geocode-glib: 4
 geocode-glib-2: 4
 folks: 4
-libshumate: 4
+libshumate: gnome-2.sh
 libraw: 7
 sddm: 3
 dbus-glib: 1
