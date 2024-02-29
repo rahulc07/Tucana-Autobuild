@@ -74,11 +74,11 @@ gpm: 1
 graphene: 4
 graphite2: 3
 graphviz: 8
-gst-plugins-bad: 1
-gst-plugins-base: 1
-gst-plugins-good: 1
-gst-plugins-ugly: 1
-gstreamer: 1
+gst-plugins-bad: gstreamer.sh
+gst-plugins-base: gstreamer.sh
+gst-plugins-good: gstreamer.sh
+gst-plugins-ugly: gstreamer.sh
+gstreamer: gstreamer.sh
 gtk3: 7
 gtksourceview4: 7
 gvfs: gvfs.sh
