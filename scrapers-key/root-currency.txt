@@ -345,3 +345,4 @@ rsync: 1
 libva-utils: 3
 openjpeg: 3
 mupdf: mupdf
+libdisplay-info: 8
