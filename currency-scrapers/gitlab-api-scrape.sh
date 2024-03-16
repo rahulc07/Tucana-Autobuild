@@ -3,7 +3,7 @@ source autobuild.conf
 PACKAGE=$1
 
 cd $BUILD_SCRIPTS_ROOT
-cat $(find . -name $PACKAGE) | grep gitlab &> /dev/null
+cat $(find . -name $PACKAGE) | grep git &> /dev/null
 if [[ $? -ne 0 ]]; then
    exit 1
 fi

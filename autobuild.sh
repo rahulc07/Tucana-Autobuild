@@ -232,7 +232,7 @@ for PACKAGE in $UPGRADE_PACKAGES; do
   cd $BUILD_SCRIPTS_ROOT
   LOCATION=$(find . -type f -name $PACKAGE)
   # Quick sanity check to make sure that the currency script didn't fail
-  echo "$NEW_VERSIONS" | grep $PACKAGE | grep -E ': [0-9]+' &> /dev/null
+  echo "$NEW_VERSIONS" | grep $PACKAGE | grep -E ': .*[0-9]+' &> /dev/null
   if [[ $? -ne 0 ]]; then
      echo "Currency check on $PACKAGE FAILED! Removing from upgrade list"
      UPGRADE_PACKAGES1=$(echo "$UPGRADE_PACKAGES" | sed "/$PACKAGE/d")
@@ -241,6 +241,8 @@ for PACKAGE in $UPGRADE_PACKAGES; do
   else
      echo "$PACKAGE passed currency checks"
      sed -i "s/PKG_VER=.*/PKG_VER=$(echo "$NEW_VERSIONS" | grep -E "^$PACKAGE:" | sed 's/.*:\ //')/g" $LOCATION
+     # Run a git commit to make versioning easier
+     git commit -am "Update $PACKAGE to $(echo "$NEW_VERSIONS" | grep -E "^$PACKAGE:" | sed 's/.*:\ //')/g"
      # Lib32 check
      #if [[ $(cat $CURRENCY_TXT_LOCATIONS/lib32-match.txt) | grep $PACKAGE ]]; then
      #  echo "Lib32 match found for $PACKAGE"
@@ -283,6 +285,9 @@ for PACKAGE in $UPGRADE_PACKAGES; do
    chroot $CHROOT /bin/bash -c "bash -e /Tucana-Build-Scripts/$LOCATION" &> $LOG_ROOT/$PACKAGE-$(date '+%m-%d-%Y').log
    if [[ $? -ne 0 ]]; then
      notify_failed_package "$PACKAGE" "1"
+     PACKAGE_COMMIT=$(git log --grep="Update $PACKAGE to $(echo "$NEW_VERSIONS" | grep -E "^$PACKAGE:" | sed 's/.*:\ //')" | grep commit | sed 's/commit\ //g')
+     git revert --no-commit $PACKAGE_COMMIT
+     git commit -am "Failed Update $PACKAGE"
      sleep 2
    else
      SUCCESSFUL_PACKAGES="$SUCCESSFUL_PACKAGES $PACKAGE"

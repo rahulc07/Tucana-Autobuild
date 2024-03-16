@@ -1,6 +1,6 @@
 android-tools: 3
 URI: 1
-a52dec: a52dec.sh
+a52dec: 1
 accounts-service: 1
 alsa-lib: 1
 apache: 1
@@ -132,7 +132,7 @@ libical: 3
 libidn2: 1
 libisoburn: 1
 libisofs: 1
-libjpeg-turbo: 7
+libjpeg-turbo: 3
 libmtp: 3
 libndp: 3
 libnl: libnl.sh
@@ -237,7 +237,7 @@ sshfs: 3
 steam: 7
 strace: 3
 talloc: 1
-tepl: 4
+tepl: gvfs.sh
 tidy: 3
 tigervnc: 3
 timezonemap: 3
@@ -283,7 +283,7 @@ libxklavier: 1
 gtk4: gvfs.sh
 rest: 4
 glade: 4
-libadwaita: 4
+libadwaita: gvfs.sh
 gsound: 4
 libchamplain: 4
 vte: 4
