@@ -242,7 +242,7 @@ for PACKAGE in $UPGRADE_PACKAGES; do
      echo "$PACKAGE passed currency checks"
      sed -i "s/PKG_VER=.*/PKG_VER=$(echo "$NEW_VERSIONS" | grep -E "^$PACKAGE:" | sed 's/.*:\ //')/g" $LOCATION
      # Run a git commit to make versioning easier
-     git commit -am "Update $PACKAGE to $(echo "$NEW_VERSIONS" | grep -E "^$PACKAGE:" | sed 's/.*:\ //')/g"
+     git commit -am "Update $PACKAGE to $(echo "$NEW_VERSIONS" | grep -E "^$PACKAGE:" | sed 's/.*:\ //')"
      # Lib32 check
      #if [[ $(cat $CURRENCY_TXT_LOCATIONS/lib32-match.txt) | grep $PACKAGE ]]; then
      #  echo "Lib32 match found for $PACKAGE"
