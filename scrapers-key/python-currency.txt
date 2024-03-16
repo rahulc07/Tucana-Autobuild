@@ -47,3 +47,4 @@ python-pyqt5: pypi.sh
 python-sip: pypi.sh
 python-pyqt5-sip: pypi.sh
 python-pyqt-builder: pypi.sh
+python-chai: pypi.sh

@@ -9,7 +9,7 @@ apr: apr.sh
 apr-util: 1
 archive-zip: 1
 asciidoc: 3
-at-spi2-core: 4
+at-spi2-core: gvfs.sh
 avahi: 3
 blueman: 3
 boost: boost.sh
@@ -346,3 +346,5 @@ libva-utils: 3
 openjpeg: 3
 mupdf: mupdf
 libdisplay-info: 8
+qcoro: 3
+unbound: unbound.sh
