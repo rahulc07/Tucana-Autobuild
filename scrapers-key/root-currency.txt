@@ -348,3 +348,7 @@ mupdf: mupdf
 libdisplay-info: 8
 qcoro: 3
 unbound: unbound.sh
+libjxl: 3
+gparted: 6
+parted: 1
+highway: 3
