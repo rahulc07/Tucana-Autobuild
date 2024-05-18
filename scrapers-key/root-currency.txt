@@ -352,3 +352,4 @@ libjxl: 3
 gparted: 6
 parted: 1
 highway: 3
+cargo-c: 3
