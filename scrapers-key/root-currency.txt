@@ -20,7 +20,7 @@ busybox: 1
 c-ares: c-ares.sh
 ca-certificates: 3
 cabextract: 7
-cairo: 4
+cairo: cairo.sh
 cbindgen: 3
 cifs-utils: 1
 clutter: 4
@@ -353,3 +353,5 @@ gparted: 6
 parted: 1
 highway: 3
 cargo-c: 3
+qrencode: 1
+vala: 4
