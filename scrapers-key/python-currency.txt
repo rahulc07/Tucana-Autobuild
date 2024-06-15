@@ -48,3 +48,4 @@ python-sip: pypi.sh
 python-pyqt5-sip: pypi.sh
 python-pyqt-builder: pypi.sh
 python-chai: pypi.sh
+python-ply: pypi.sh
