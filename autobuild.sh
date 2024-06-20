@@ -99,7 +99,7 @@ chroot_setup() {
   chroot $CHROOT /bin/bash -c "pwconv"
   
   # Kernel & Build Essentials (steam is the easiest way to get the lib32 stuff)
-  chroot $CHROOT /bin/bash -c "printf 'y\n' | mercury-install linux-tucana mpc gcc binutils steam automake autoconf ninja meson cmake make flex bison gawk gperf pkgconf file patch gettext perl texinfo less check m4 bc glslang vulkan-headers git gobject-introspection gi-docgen pyproject-hooks python-build python-installer"
+  chroot $CHROOT /bin/bash -c "printf 'y\n' | mercury-install linux-tucana mpc gcc binutils steam automake autoconf ninja meson cmake make flex bison gawk gperf pkgconf file patch gettext perl texinfo less check m4 bc glslang vulkan-headers git gobject-introspection gi-docgen pyproject-hooks python-build python-installer groff"
   
   # Locale
   echo "Building Locales"
