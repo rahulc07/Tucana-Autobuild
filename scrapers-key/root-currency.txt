@@ -17,10 +17,10 @@ brotli: 3
 bubblewrap: 3
 build_kernel.sh: 1
 busybox: 1
-c-ares: c-ares.sh
+c-ares: 3
 ca-certificates: 3
 cabextract: 7
-cairo: 1
+cairo: cairo.sh
 cbindgen: 3
 cifs-utils: 1
 clutter: 4
@@ -355,7 +355,7 @@ highway: 3
 cargo-c: 3
 abseil-cpp: 3
 protobuf: 3
-protobuc-c: 3
+protobuf-c: 3
 pkcs11-helper: 3
 sdl2_ttf: 3
 spirv-llvm-translator: 3
