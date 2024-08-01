@@ -371,3 +371,6 @@ gavl: 6
 frei0r-plugins: 1
 mlt: 3
 kdsoap: 3
+kdsoap-ws-discovery-client: 7
+dmidecode: 1
+
