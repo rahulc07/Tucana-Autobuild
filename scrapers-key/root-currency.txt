@@ -361,3 +361,4 @@ sdl2_ttf: 3
 spirv-llvm-translator: 3
 libclc: 3
 rust-bindgen: 3
+bolt: 8
