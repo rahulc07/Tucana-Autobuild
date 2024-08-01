@@ -362,3 +362,12 @@ spirv-llvm-translator: 3
 libclc: 3
 rust-bindgen: 3
 bolt: 8
+ddcutil: 3
+i2c-tools: 1
+libaccounts-qt: 7
+libaccounts-glib: 7
+grantlee: 3
+gavl: 6
+frei0r-plugins: 1
+mlt: 3
+kdsoap: 3
