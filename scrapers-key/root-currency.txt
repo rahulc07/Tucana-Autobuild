@@ -237,7 +237,7 @@ sshfs: 3
 steam: 7
 strace: 3
 talloc: 1
-tepl: gvfs.sh
+tepl: 3
 tidy: 3
 tigervnc: 3
 timezonemap: 3
@@ -387,3 +387,5 @@ colord-gtk: 1
 repochooser: 3
 libseccomp: 3
 glycin: 4
+gedit: 5
+libgedit-gfls: 3
