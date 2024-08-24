@@ -110,3 +110,6 @@ sdl2
 kmod
 brotli
 gnutls
+libtasn1
+libclc
+spirv-llvm-translator
