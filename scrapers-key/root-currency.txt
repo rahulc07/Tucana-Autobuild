@@ -153,7 +153,7 @@ libtasn1: libtasn1.sh
 libtheora: libtheora.sh
 libtirpc: 7
 libunistring: 1
-libunwind: 1
+libunwind: 3
 libusb: 3
 libuv: 2
 libva: 3
