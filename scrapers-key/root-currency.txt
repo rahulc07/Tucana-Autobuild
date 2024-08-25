@@ -210,7 +210,7 @@ picom: 3
 pipewire: 3
 pixman: 1
 playerctl: 3
-polkit: 8
+polkit: 3
 polkit-gnome: 4
 popt: 2
 pulseaudio: 1
