@@ -103,42 +103,8 @@ chroot_setup() {
   
   # Locale
   echo "Building Locales"
-  chroot $CHROOT /bin/bash -c "mkdir -pv /usr/lib/locale
-   localedef -i POSIX -f UTF-8 C.UTF-8 2> /dev/null || true
-   localedef -i cs_CZ -f UTF-8 cs_CZ.UTF-8
-   localedef -i de_DE -f ISO-8859-1 de_DE
-   localedef -i de_DE@euro -f ISO-8859-15 de_DE@euro
-   localedef -i de_DE -f UTF-8 de_DE.UTF-8
-   localedef -i el_GR -f ISO-8859-7 el_GR
-   localedef -i en_GB -f ISO-8859-1 en_GB
-   localedef -i en_GB -f UTF-8 en_GB.UTF-8
-   localedef -i en_HK -f ISO-8859-1 en_HK
-   localedef -i en_PH -f ISO-8859-1 en_PH
-   localedef -i en_US -f ISO-8859-1 en_US
-   localedef -i en_US -f UTF-8 en_US.UTF-8
-   localedef -i es_ES -f ISO-8859-15 es_ES@euro
-   localedef -i es_MX -f ISO-8859-1 es_MX
-   localedef -i fa_IR -f UTF-8 fa_IR
-   localedef -i fr_FR -f ISO-8859-1 fr_FR
-   localedef -i fr_FR@euro -f ISO-8859-15 fr_FR@euro
-   localedef -i fr_FR -f UTF-8 fr_FR.UTF-8
-   localedef -i is_IS -f ISO-8859-1 is_IS
-   localedef -i is_IS -f UTF-8 is_IS.UTF-8
-   localedef -i it_IT -f ISO-8859-1 it_IT
-   localedef -i it_IT -f ISO-8859-15 it_IT@euro
-   localedef -i it_IT -f UTF-8 it_IT.UTF-8
-   localedef -i ja_JP -f EUC-JP ja_JP
-   localedef -i ja_JP -f SHIFT_JIS ja_JP.SJIS 2> /dev/null || true
-   localedef -i ja_JP -f UTF-8 ja_JP.UTF-8
-   localedef -i nl_NL@euro -f ISO-8859-15 nl_NL@euro
-   localedef -i ru_RU -f KOI8-R ru_RU.KOI8-R
-   localedef -i ru_RU -f UTF-8 ru_RU.UTF-8
-   localedef -i se_NO -f UTF-8 se_NO.UTF-8
-   localedef -i ta_IN -f UTF-8 ta_IN.UTF-8
-   localedef -i tr_TR -f UTF-8 tr_TR.UTF-8
-   localedef -i zh_CN -f GB18030 zh_CN.GB18030
-   localedef -i zh_HK -f BIG5-HKSCS zh_HK.BIG5-HKSCS
-   localedef -i zh_TW -f UTF-8 zh_TW.UTF-8"
+  echo "en_US.UTF-8 UTF-8" > $CHROOT/etc/locale.gen
+  chroot $CHROOT /bin/bash -c "locale-gen"
 
 
    # Copy the build scripts 
@@ -244,13 +210,14 @@ for PACKAGE in $UPGRADE_PACKAGES; do
      # Run a git commit to make versioning easier
      git commit -am "Update $PACKAGE to $(echo "$NEW_VERSIONS" | grep -E "^$PACKAGE:" | sed 's/.*:\ //')"
      # Lib32 check
-     #if [[ $(cat $CURRENCY_TXT_LOCATIONS/lib32-match.txt) | grep $PACKAGE ]]; then
-     #  echo "Lib32 match found for $PACKAGE"
-       # Add lib32 package to the upgrade list
-       # UPGRADE_PACKAGES="$UPGRADE_PACKAGES lib32-$PACKAGE"
-       # change the pkgver in the lib32 packages
-       #sed -i "s/PKG_VER=.*/PKG_VER=$(echo "$NEW_VERSIONS" | grep -E "^$PACKAGE:" | sed 's/.*:\ //')/g" $(find . -name lib32-$PACKAGE)
-     #fi
+     if [[ $(cat $CURRENCY_TXT_LOCATIONS/lib32-match.txt | grep lib32-$PACKAGE) ]]; then
+       echo "Lib32 match found for $PACKAGE"
+       # To make sure that the build order is correct, these are NOT put into UPGRADE_PACKAGES, 
+       # They are instead just done dynamically
+       LOCATION=$(find . -type f -name lib32-$PACKAGE)
+       sed -i "s/PKG_VER=.*/PKG_VER=$(echo "$NEW_VERSIONS" | grep -E "^$PACKAGE:" | sed 's/.*:\ //')/g" $LOCATION
+       git commit -am "Update lib32-$PACKAGE to $(echo "$NEW_VERSIONS" | grep -E "^$PACKAGE:" | sed 's/.*:\ //')"
+     fi
        
   fi
 done
@@ -292,6 +259,27 @@ for PACKAGE in $UPGRADE_PACKAGES; do
    else
      SUCCESSFUL_PACKAGES="$SUCCESSFUL_PACKAGES $PACKAGE"
    fi
+
+
+   # Lib32
+   if [[ $(cat $CURRENCY_TXT_LOCATIONS/lib32-match.txt | grep lib32-$PACKAGE) ]]; then
+     cd $BUILD_SCRIPTS_ROOT
+     LOCATION=$(find . -type f -name lib32-$PACKAGE -print | cut -d/ -f2-)
+     echo "Building $PACKAGE"
+     chroot $CHROOT /bin/bash -c "printf 'y' | mercury-install lib32-$PACKAGE"
+     echo "Installing Depends"
+     install_make_depends "lib32-$PACKAGE"
+     chroot $CHROOT /bin/bash -c "bash -e /Tucana-Build-Scripts/lib32-$LOCATION" &> $LOG_ROOT/$PACKAGE-$(date '+%m-%d-%Y').log
+     if [[ $? -ne 0 ]]; then
+       notify_failed_package "$PACKAGE" "1"
+       PACKAGE_COMMIT=$(git log --grep="Update lib32-$PACKAGE to $(echo "$NEW_VERSIONS" | grep -E "^$PACKAGE:" | sed 's/.*:\ //')" | grep commit | sed 's/commit\ //g')
+       git revert --no-commit $PACKAGE_COMMIT
+       git commit -am "Failed Update $PACKAGE"
+       sleep 2
+     else
+       SUCCESSFUL_PACKAGES="$SUCCESSFUL_PACKAGES $PACKAGE"
+     fi
+   fi 
 done
 
 echo $SUCCESSFUL_PACKAGES
