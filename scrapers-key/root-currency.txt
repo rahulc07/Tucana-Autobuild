@@ -53,7 +53,7 @@ fltk: fltk.sh
 fmt: 3
 fontconfig: 1
 freeglut: 3
-freerdp2: 3
+freerdp: 3
 freetype2: freetype.sh
 fribidi: 3
 fuse3: 3
@@ -286,7 +286,7 @@ glade: 4
 libadwaita: gvfs.sh
 gsound: 4
 libchamplain: 4
-vte: 4
+vte: gvfs.sh
 vte4: 4
 zenity: 7
 libsoup: 7
@@ -389,3 +389,4 @@ libseccomp: 3
 glycin: 4
 gedit: 5
 libgedit-gfls: 3
+libmng: 6

@@ -210,7 +210,7 @@ for PACKAGE in $UPGRADE_PACKAGES; do
      # Run a git commit to make versioning easier
      git commit -am "Update $PACKAGE to $(echo "$NEW_VERSIONS" | grep -E "^$PACKAGE:" | sed 's/.*:\ //')"
      # Lib32 check
-     if [[ $(cat $CURRENCY_TXT_LOCATIONS/lib32-match.txt | grep lib32-$PACKAGE) ]]; then
+     if [[ $(cat $ROOT/lib32-match.txt | grep lib32-$PACKAGE) ]]; then
        echo "Lib32 match found for $PACKAGE"
        # To make sure that the build order is correct, these are NOT put into UPGRADE_PACKAGES, 
        # They are instead just done dynamically
@@ -262,14 +262,14 @@ for PACKAGE in $UPGRADE_PACKAGES; do
 
 
    # Lib32
-   if [[ $(cat $CURRENCY_TXT_LOCATIONS/lib32-match.txt | grep lib32-$PACKAGE) ]]; then
+   if [[ $(cat $ROOT/lib32-match.txt | grep lib32-$PACKAGE) ]]; then
      cd $BUILD_SCRIPTS_ROOT
      LOCATION=$(find . -type f -name lib32-$PACKAGE -print | cut -d/ -f2-)
      echo "Building $PACKAGE"
      chroot $CHROOT /bin/bash -c "printf 'y' | mercury-install lib32-$PACKAGE"
      echo "Installing Depends"
      install_make_depends "lib32-$PACKAGE"
-     chroot $CHROOT /bin/bash -c "bash -e /Tucana-Build-Scripts/lib32-$LOCATION" &> $LOG_ROOT/$PACKAGE-$(date '+%m-%d-%Y').log
+     chroot $CHROOT /bin/bash -c "bash -e /Tucana-Build-Scripts/$LOCATION" &> $LOG_ROOT/lib32-$PACKAGE-$(date '+%m-%d-%Y').log
      if [[ $? -ne 0 ]]; then
        notify_failed_package "$PACKAGE" "1"
        PACKAGE_COMMIT=$(git log --grep="Update lib32-$PACKAGE to $(echo "$NEW_VERSIONS" | grep -E "^$PACKAGE:" | sed 's/.*:\ //')" | grep commit | sed 's/commit\ //g')
@@ -277,7 +277,7 @@ for PACKAGE in $UPGRADE_PACKAGES; do
        git commit -am "Failed Update $PACKAGE"
        sleep 2
      else
-       SUCCESSFUL_PACKAGES="$SUCCESSFUL_PACKAGES $PACKAGE"
+       SUCCESSFUL_PACKAGES="$SUCCESSFUL_PACKAGES lib32-$PACKAGE"
      fi
    fi 
 done
