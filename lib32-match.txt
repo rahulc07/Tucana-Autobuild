@@ -111,5 +111,5 @@ lib32-kmod
 lib32-brotli
 lib32-gnutls
 lib32-libtasn1
-lib32-libclc
 lib32-spirv-llvm-translator
+lib32-libpsl

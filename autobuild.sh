@@ -271,7 +271,7 @@ for PACKAGE in $UPGRADE_PACKAGES; do
      install_make_depends "lib32-$PACKAGE"
      chroot $CHROOT /bin/bash -c "bash -e /Tucana-Build-Scripts/$LOCATION" &> $LOG_ROOT/lib32-$PACKAGE-$(date '+%m-%d-%Y').log
      if [[ $? -ne 0 ]]; then
-       notify_failed_package "$PACKAGE" "1"
+       notify_failed_package "lib32-$PACKAGE" "1"
        PACKAGE_COMMIT=$(git log --grep="Update lib32-$PACKAGE to $(echo "$NEW_VERSIONS" | grep -E "^$PACKAGE:" | sed 's/.*:\ //')" | grep commit | sed 's/commit\ //g')
        git revert --no-commit $PACKAGE_COMMIT
        git commit -am "Failed Update $PACKAGE"
