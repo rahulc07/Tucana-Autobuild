@@ -390,3 +390,4 @@ glycin: 4
 gedit: 5
 libgedit-gfls: 3
 libmng: 6
+shaderc: 3
