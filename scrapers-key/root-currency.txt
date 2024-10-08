@@ -396,3 +396,5 @@ libpanel: 4
 liburing: 7
 libdex: 4
 libcloudproviders: 4
+gexiv2: 4
+js128: js128.sh
