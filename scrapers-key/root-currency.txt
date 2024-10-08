@@ -391,3 +391,7 @@ gedit: 5
 libgedit-gfls: 3
 libmng: 6
 shaderc: 3
+sysprof: 5
+libpanel: 4
+liburing: 7
+libdex: 4
