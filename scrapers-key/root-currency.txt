@@ -395,3 +395,4 @@ sysprof: 5
 libpanel: 4
 liburing: 7
 libdex: 4
+libcloudproviders: 4
