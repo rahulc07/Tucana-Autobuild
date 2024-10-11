@@ -399,3 +399,4 @@ libcloudproviders: 4
 gexiv2: 4
 js128: js128.sh
 gnome-autoar: 4
+grilo: 4
