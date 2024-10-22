@@ -295,8 +295,8 @@ libgnomekbd: 4
 brasero: 4
 caribou: 4
 gfbgraph: 4
-tracker-miners: 4
-tracker: gnome-2.sh
+localsearch: 4
+tinysparql: gnome-2.sh
 totem-pl-parser: 4
 libpeas: 7
 libgweather: 4
