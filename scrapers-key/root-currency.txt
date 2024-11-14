@@ -402,3 +402,4 @@ gnome-autoar: 4
 grilo: 4
 babl: 2
 bind: 7
+liburuc: 1
