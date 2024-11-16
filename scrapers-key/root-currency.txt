@@ -43,7 +43,6 @@ duktape: duktape.sh
 emacs: 1
 exfatprogs: 3
 exo: 2
-fbdev: 1
 fdk-aac: 3
 feh: 3
 ffmpeg: 1
