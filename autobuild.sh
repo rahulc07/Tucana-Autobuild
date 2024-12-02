@@ -1,4 +1,3 @@
-#!/bin/bash
 # This initalizes building packages based on the currency check output for the day
 
 # Again, this is some of the worst yet most functional code I have ever written.  Please read everything twice before assuming that something doesn't work. 
@@ -252,7 +251,10 @@ for PACKAGE in $UPGRADE_PACKAGES; do
    chroot $CHROOT /bin/bash -c "bash -e /Tucana-Build-Scripts/$LOCATION" &> $LOG_ROOT/$PACKAGE-$(date '+%m-%d-%Y').log
    if [[ $? -ne 0 ]]; then
      notify_failed_package "$PACKAGE" "1"
+     cd $BUILD_SCRIPTS_ROOT
+     notify_failed_package "$PACKAGE" "1"
      PACKAGE_COMMIT=$(git log --grep="Update $PACKAGE to $(echo "$NEW_VERSIONS" | grep -E "^$PACKAGE:" | sed 's/.*: //')" --format="%H" -n 1)
+     echo $PACKAGE_COMMIT
      git revert --no-commit $PACKAGE_COMMIT
      git commit -am "Failed Update $PACKAGE"
      sleep 2
@@ -272,6 +274,7 @@ for PACKAGE in $UPGRADE_PACKAGES; do
      chroot $CHROOT /bin/bash -c "bash -e /Tucana-Build-Scripts/$LOCATION" &> $LOG_ROOT/lib32-$PACKAGE-$(date '+%m-%d-%Y').log
      if [[ $? -ne 0 ]]; then
        notify_failed_package "lib32-$PACKAGE" "1"
+       cd $BUiLD_SCRIPTS_ROOT
      PACKAGE_COMMIT=$(git log --grep="Update lib32-$PACKAGE to $(echo "$NEW_VERSIONS" | grep -E "^$PACKAGE:" | sed 's/.*: //')" --format="%H" -n 1)
        git revert --no-commit $PACKAGE_COMMIT
        git commit -am "Failed Update $PACKAGE"
