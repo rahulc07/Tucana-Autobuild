@@ -17,7 +17,7 @@ email_upgrades() {
 cd $AUTOBUILD_ROOT
 
 # Make the file to email
-echo "From: Tucana Autobuild Tool
+echo "From: Tucana Autobuild Tool <autobuild@tucanalinux.org>
 Subject: Tucana Build Manifest for $(date '+%B %d %Y')
 Tucana Currency Check for $(date '+%B %d %Y')
 Packages that are going to be built:
@@ -252,7 +252,7 @@ for PACKAGE in $UPGRADE_PACKAGES; do
    chroot $CHROOT /bin/bash -c "bash -e /Tucana-Build-Scripts/$LOCATION" &> $LOG_ROOT/$PACKAGE-$(date '+%m-%d-%Y').log
    if [[ $? -ne 0 ]]; then
      notify_failed_package "$PACKAGE" "1"
-     PACKAGE_COMMIT=$(git log --grep="Update $PACKAGE to $(echo "$NEW_VERSIONS" | grep -E "^$PACKAGE:" | sed 's/.*:\ //')" | grep commit | sed 's/commit\ //g')
+     PACKAGE_COMMIT=$(git log --grep="Update $PACKAGE to $(echo "$NEW_VERSIONS" | grep -E "^$PACKAGE:" | sed 's/.*: //')" --format="%H" -n 1)
      git revert --no-commit $PACKAGE_COMMIT
      git commit -am "Failed Update $PACKAGE"
      sleep 2
@@ -272,7 +272,7 @@ for PACKAGE in $UPGRADE_PACKAGES; do
      chroot $CHROOT /bin/bash -c "bash -e /Tucana-Build-Scripts/$LOCATION" &> $LOG_ROOT/lib32-$PACKAGE-$(date '+%m-%d-%Y').log
      if [[ $? -ne 0 ]]; then
        notify_failed_package "lib32-$PACKAGE" "1"
-       PACKAGE_COMMIT=$(git log --grep="Update lib32-$PACKAGE to $(echo "$NEW_VERSIONS" | grep -E "^$PACKAGE:" | sed 's/.*:\ //')" | grep commit | sed 's/commit\ //g')
+     PACKAGE_COMMIT=$(git log --grep="Update lib32-$PACKAGE to $(echo "$NEW_VERSIONS" | grep -E "^$PACKAGE:" | sed 's/.*: //')" --format="%H" -n 1)
        git revert --no-commit $PACKAGE_COMMIT
        git commit -am "Failed Update $PACKAGE"
        sleep 2
