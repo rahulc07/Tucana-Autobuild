@@ -283,3 +283,4 @@ for PACKAGE in $UPGRADE_PACKAGES; do
 done
 
 echo $SUCCESSFUL_PACKAGES
+exit 0
