@@ -252,7 +252,6 @@ for PACKAGE in $UPGRADE_PACKAGES; do
    if [[ $? -ne 0 ]]; then
      notify_failed_package "$PACKAGE" "1"
      cd $BUILD_SCRIPTS_ROOT
-     notify_failed_package "$PACKAGE" "1"
      PACKAGE_COMMIT=$(git log --grep="Update $PACKAGE to $(echo "$NEW_VERSIONS" | grep -E "^$PACKAGE:" | sed 's/.*: //')" --format="%H" -n 1)
      echo $PACKAGE_COMMIT
      git revert --no-commit $PACKAGE_COMMIT
