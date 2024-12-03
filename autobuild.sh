@@ -18,6 +18,7 @@ cd $AUTOBUILD_ROOT
 # Make the file to email
 echo "From: Tucana Autobuild Tool <autobuild@tucanalinux.org>
 Subject: Tucana Build Manifest for $(date '+%B %d %Y')
+
 Tucana Currency Check for $(date '+%B %d %Y')
 Packages that are going to be built:
 Package name: (Version in repo)   (Version going to be built)
@@ -273,7 +274,7 @@ for PACKAGE in $UPGRADE_PACKAGES; do
      chroot $CHROOT /bin/bash -c "bash -e /Tucana-Build-Scripts/$LOCATION" &> $LOG_ROOT/lib32-$PACKAGE-$(date '+%m-%d-%Y').log
      if [[ $? -ne 0 ]]; then
        notify_failed_package "lib32-$PACKAGE" "1"
-       cd $BUiLD_SCRIPTS_ROOT
+       cd $BUILD_SCRIPTS_ROOT
      PACKAGE_COMMIT=$(git log --grep="Update lib32-$PACKAGE to $(echo "$NEW_VERSIONS" | grep -E "^$PACKAGE:" | sed 's/.*: //')" --format="%H" -n 1)
        git revert --no-commit $PACKAGE_COMMIT
        git commit -am "Failed Update $PACKAGE"
