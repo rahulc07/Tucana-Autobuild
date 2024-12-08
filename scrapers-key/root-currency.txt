@@ -236,7 +236,7 @@ sshfs: 3
 steam: 7
 strace: 3
 talloc: 1
-tepl: 3
+tepl: 4
 tidy: 3
 tigervnc: 3
 timezonemap: 3
@@ -270,7 +270,7 @@ gegl: 1
 cyrus-sasl: 3
 sendmail: sendmail.sh
 mailutils: 1
-libgedit-gtksourceview: libgedit-gtksourceview
+libgedit-gtksourceview: 4
 gnupg: 1
 mpg123: 7
 iptables: 1
@@ -386,7 +386,7 @@ repochooser: 3
 libseccomp: 3
 glycin: 4
 gedit: 5
-libgedit-gfls: 3
+libgedit-gfls: 4
 libmng: 6
 shaderc: 3
 sysprof: 5
@@ -403,3 +403,4 @@ bind: 7
 liburuc: 1
 nginx: 1
 libgxps: 4
+sqlite: sqlite.sh
