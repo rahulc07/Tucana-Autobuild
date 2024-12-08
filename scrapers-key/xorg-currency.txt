@@ -64,3 +64,4 @@ libXvMC: 1
 libXxf86dga: 1
 libXxf86vm: 1
 xtrans: 1
+libwacom: 3
