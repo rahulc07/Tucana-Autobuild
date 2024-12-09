@@ -3,7 +3,6 @@ libxfce4ui: 2
 libxfce4util: 2
 parole: 2
 ristretto: 2
-test: 2
 thunar: 2
 thunar-volman: 2
 tumbler: 2
