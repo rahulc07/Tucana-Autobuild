@@ -17,3 +17,4 @@ xfce4-terminal: 2
 xfconf: 2
 xfdesktop: 2
 xfwm4: 2
+libxfce4windowing: 2
