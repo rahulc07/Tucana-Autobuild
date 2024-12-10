@@ -6,7 +6,6 @@ ristretto: 2
 thunar: 2
 thunar-volman: 2
 tumbler: 2
-xfce4: 2
 xfce4-appfinder: 2
 xfce4-notifyd: 2
 xfce4-panel: 2
