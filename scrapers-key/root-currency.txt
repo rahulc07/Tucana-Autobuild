@@ -404,3 +404,4 @@ liburuc: 1
 nginx: 1
 libgxps: 4
 sqlite: sqlite.sh
+yq: 3
