@@ -50,3 +50,4 @@ python-pyqt-builder: pypi.sh
 python-chai: pypi.sh
 python-ply: pypi.sh
 python-hatch-vcs: pypi.sh
+python-tqdm: pypi.sh
