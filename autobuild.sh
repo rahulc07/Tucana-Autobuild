@@ -71,17 +71,12 @@ chroot_setup() {
   sleep 3  
   # Subset of the installer script, check there for explanations
   cd $AUTOBUILD_ROOT
-  git clone https://github.com/xXTeraXx/Tucana.git
-  # Change Install path and Repo
-  sed -i "s|INSTALL_PATH=.*|INSTALL_PATH=$CHROOT|g" Tucana/mercury/mercury-install
-  sed -i "s|INSTALL_PATH=.*|INSTALL_PATH=$CHROOT|g" Tucana/mercury/mercury-sync
-  sed -i "s|REPO=.*|REPO=$REPO|g" Tucana/mercury/mercury-install
-  sed -i "s|REPO=.*|REPO=$REPO|g" Tucana/mercury/mercury-sync
+
+  # bootstrap chroot
+  neptune-bootstrap $CHROOT --y
   
-  # Install the base system
-  cd Tucana/mercury
-  ./mercury-sync
-  printf "y\n" | ./mercury-install base
+  # Change the repo
+  sed -i "s@\"http.*\"@\"${REPO}\"@" $CHROOT/etc/neptune/config.yaml
   
   # Mount temp filesystems
   mount --bind /dev $CHROOT/dev
@@ -99,7 +94,8 @@ chroot_setup() {
   chroot $CHROOT /bin/bash -c "pwconv"
   
   # Kernel & Build Essentials (steam is the easiest way to get the lib32 stuff)
-  chroot $CHROOT /bin/bash -c "printf 'y\n' | mercury-install linux-tucana mpc gcc binutils steam automake autoconf ninja meson cmake make flex bison gawk gperf pkgconf file patch gettext perl texinfo less check m4 bc glslang vulkan-headers git gobject-introspection gi-docgen pyproject-hooks python-build python-installer groff"
+  chroot $CHROOT /bin/bash -c "neptune sync"
+  chroot $CHROOT /bin/bash -c "neptune install --y linux-tucana mpc gcc binutils steam automake autoconf ninja meson cmake make flex bison gawk gperf pkgconf file patch gettext perl texinfo less check m4 bc glslang vulkan-headers git gobject-introspection gi-docgen pyproject-hooks python-build python-installer groff"
   
   # Locale
   echo "Building Locales"
@@ -116,13 +112,13 @@ chroot_setup() {
 }
 install_make_depends() {
   local PACKAGE=$1
-  sudo chroot $CHROOT /bin/bash -c "printf 'y' | mercury-install $PACKAGE"
+  sudo chroot $CHROOT /bin/bash -c "neptune install --y $PACKAGE"
   cat $(find . -type f -name $PACKAGE -print | cut -d/ -f2-) | grep make-depends | grep -E -o '".*"' | sed 's/"//g' &> /dev/null
   if [[ $? == 0 ]]; then
      local DEPENDS=$(cat $(find . -type f -name $PACKAGE -print | cut -d/ -f2-) | grep make-depends | grep -E -o '".*"' | sed 's/"//g')
      echo $DEPENDS |  grep -E "[[:alpha:]]" 
      if [[ $? == 0 ]]; then
-       sudo chroot $CHROOT /bin/bash -c "printf 'y' | mercury-install $DEPENDS"
+       sudo chroot $CHROOT /bin/bash -c "neptune install --y $DEPENDS"
      else 
        echo "No make depends found" 
      fi 
@@ -246,7 +242,7 @@ for PACKAGE in $UPGRADE_PACKAGES; do
    cd $BUILD_SCRIPTS_ROOT
    LOCATION=$(find . -type f -name $PACKAGE -print | cut -d/ -f2-)
    echo "Building $PACKAGE"
-   chroot $CHROOT /bin/bash -c "printf 'y' | mercury-install $PACKAGE"
+   chroot $CHROOT /bin/bash -c "neptune install --y $PACKAGE"
    echo "Installing Depends"
    install_make_depends "$PACKAGE"
    chroot $CHROOT /bin/bash -c "bash -e /Tucana-Build-Scripts/$LOCATION" &> $LOG_ROOT/$PACKAGE-$(date '+%m-%d-%Y').log
@@ -268,7 +264,7 @@ for PACKAGE in $UPGRADE_PACKAGES; do
      cd $BUILD_SCRIPTS_ROOT
      LOCATION=$(find . -type f -name lib32-$PACKAGE -print | cut -d/ -f2-)
      echo "Building $PACKAGE"
-     chroot $CHROOT /bin/bash -c "printf 'y' | mercury-install lib32-$PACKAGE"
+     chroot $CHROOT /bin/bash -c "neptune install --y lib32-$PACKAGE"
      echo "Installing Depends"
      install_make_depends "lib32-$PACKAGE"
      chroot $CHROOT /bin/bash -c "bash -e /Tucana-Build-Scripts/$LOCATION" &> $LOG_ROOT/lib32-$PACKAGE-$(date '+%m-%d-%Y').log
