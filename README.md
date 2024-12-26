@@ -1,8 +1,3 @@
-# Tucana-Autobuild
+# Tucana-Autobuild-mercury
 
-The currency check scripts for Tucana and an autobuild system
-
-These find the latest version of most of the packages in the Tucana repo
-
-
-The Github API key in the commits is expired.
+This is a snapshot of the last build of Tucana autobuild to support mercury, this version will not recieve any updates, nor any support
