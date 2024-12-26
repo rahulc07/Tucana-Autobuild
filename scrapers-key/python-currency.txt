@@ -51,3 +51,6 @@ python-chai: pypi.sh
 python-ply: pypi.sh
 python-hatch-vcs: pypi.sh
 python-tqdm: pypi.sh
+python-mdurl: pypi.sh
+python-markdown-it-py: pypi.sh
+python-rich: pypi.sh
