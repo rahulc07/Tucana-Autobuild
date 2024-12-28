@@ -1,5 +1,5 @@
 #!/bin/bash
-source autobuild.conf
+source /home/rahul/Git-Clones/autobuilds/12-26-2024/autobuild.conf
 SCRIPTS_PATH=$SCRAPER_LOCATIONS/
 URL=$(cat $(find $BUILD_SCRIPTS_ROOT/ -name $1) | grep URL= | sed 's![^/]*$!!' | sed 's/URL=//g' | sed 's/.$//' | sed 's![^/]*$!!' | sed 's/.$//' | sed 's![^/]*$!!'   )
 PACKAGE_PREFIX=$(cat $(find $BUILD_SCRIPTS_ROOT/ -name $1) | grep URL | head -1 | sed 's/URL=//g'| sed -r 's|(.*)/||'| sed 's|.tar.*||g' | sed 's|-[^-]*$||g')

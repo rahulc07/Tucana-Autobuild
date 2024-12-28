@@ -1,5 +1,5 @@
 #!/bin/bash
-source autobuild.conf
+source /home/rahul/Git-Clones/autobuilds/12-26-2024/autobuild.conf
 FILE="$1"
 SCRIPTS_PATH=$SCRAPER_LOCATIONS
 OUTPUT=$AUTOBUILD_ROOT/currency.sh
