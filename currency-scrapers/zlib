@@ -1,5 +1,5 @@
 #!/bin/bash
-source /home/rahul/Git-Clones/autobuilds/12-26-2024/autobuild.conf
+source autobuild.conf
 PACKAGE=$1
 cd $BUILD_SCRIPTS_ROOT
 cat $(find . -name $PACKAGE -not -path './.git*') | grep github &> /dev/null

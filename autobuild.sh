@@ -2,7 +2,7 @@
 
 # Again, this is some of the worst yet most functional code I have ever written.  Please read everything twice before assuming that something doesn't work. 
 # To use this script you have to change paths in 3 files, convert_txt_to_script.sh (run the build_new_currency function to make a new currency.sh), $BUILD_SCRIPTS_ROOT/scripts/generate_pkgvers.sh and this file to make the currency checks work.
-source /home/rahul/Git-Clones/autobuilds/12-26-2024/autobuild.conf
+source autobuild.conf
 rm -rf $AUTOBUILD_ROOT
 mkdir -p $AUTOBUILD_ROOT
 build_new_currency() {

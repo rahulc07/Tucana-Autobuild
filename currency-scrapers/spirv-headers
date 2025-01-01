@@ -1,5 +1,5 @@
 #!/bin/bash
-source /home/rahul/Git-Clones/autobuilds/12-26-2024/autobuild.conf
+source autobuild.conf
 PACKAGE=$1
 cd $BUILD_SCRIPTS_ROOT
 REPO=$(cat $(find . -name $PACKAGE) | grep URL | head -1 | sed 's/.*\.com//' | sed 's|/|!|3' | sed 's/!.*//' | sed 's/^.//')

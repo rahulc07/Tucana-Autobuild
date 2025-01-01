@@ -1,5 +1,5 @@
 #!/bin/bash
-source /home/rahul/Git-Clones/autobuilds/12-26-2024/autobuild.conf
+source autobuild.conf
 
 # Check whether a package is being held for any reason any remove it
 # from the currency script

@@ -1,3 +1,3 @@
 #!/bin/bash
-source /home/rahul/Git-Clones/autobuilds/12-26-2024/autobuild.conf
+source autobuild.conf
 echo "5.0"

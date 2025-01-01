@@ -1,5 +1,5 @@
 #!/bin/bash
-source /home/rahul/Git-Clones/autobuilds/12-26-2024/autobuild.conf
+source autobuild.conf
 
 # this is the last resort, or when I am too stupid to come up with the seds
 # just get the package release from arch, it is probably new enough...

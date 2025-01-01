@@ -1,5 +1,5 @@
 #!/bin/bash
-source /home/rahul/Git-Clones/autobuilds/12-26-2024/autobuild.conf
+source autobuild.conf
 OUTPUT=$AUTOBUILD_ROOT
 # This gets the package versions currently in the repo
 # Warning all of these are relative, you have to be in the build script root to run this properly
