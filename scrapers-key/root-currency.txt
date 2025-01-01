@@ -271,7 +271,7 @@ cyrus-sasl: 3
 sendmail: sendmail.sh
 mailutils: 1
 libgedit-gtksourceview: 4
-gnupg: 1
+gnupg: gnupg.sh
 mpg123: 7
 iptables: 1
 go: 7
