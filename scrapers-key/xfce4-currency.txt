@@ -18,3 +18,4 @@ xfconf: 2
 xfdesktop: 2
 xfwm4: 2
 libxfce4windowing: 2
+xfce4-dev-tools: 2
